@@ -155,16 +155,13 @@ public class Taller {
 	/*
 	 * Buscando autos
 	 */
-	
-	
-	
 	public boolean seBuscaAutoTaller(String placa) {
 
 		boolean encontrado = false;
 
 		for (int i = 0; i < clientes.size() && encontrado; i++) {
 			encontrado = clientes.get(i).seBuscaAuto(placa);
-			 }
+		}
 		return encontrado;
 	}
 
@@ -191,7 +188,11 @@ public class Taller {
 			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
 		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
 			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
-		} else
+		} else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
+			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
+		}
+
+		else
 			trabajos.add(trabajo);
 	}
 
