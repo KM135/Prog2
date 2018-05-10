@@ -31,11 +31,11 @@ public class Taller {
 		clientes = new ArrayList<Propietario>();
 		mecanicos = new ArrayList<Mecanico>();
 	}
-	
+
 	/*
 	 * Getters and setters
 	 */
-	
+
 	public int getId() {
 		return id;
 	}
@@ -99,31 +99,14 @@ public class Taller {
 	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
 		this.mecanicos = mecanicos;
 	}
-	
-	//------------------------------
-	//METODOS DE LA CLASE PRINCIPAL
-	//------------------------------
-	
-	public boolean seBuscaReparacion(int id) {
 
-		boolean encontrado = false;
+	// ------------------------------
+	// METODOS DE LA CLASE PRINCIPAL
+	// ------------------------------
 
-		for (int i = 0; i < trabajos.size() && encontrado; i++) {
-			if (trabajos.get(i).getId() == id) {
-				encontrado = true;
-			}
-		}
-
-		return encontrado;
-	}
-
-	public void agregarTrabajo(Reparacion trabajo) throws Exception {
-
-		if (seBuscaReparacion(trabajo.getId())) {
-			throw new Exception("Orden de trabajo ya existe en el sistema");
-		} else
-			trabajos.add(trabajo);
-	}
+	/*
+	 * Agreando clientes
+	 */
 
 	public boolean seBuscaCliente(int id) {
 
@@ -146,6 +129,10 @@ public class Taller {
 			clientes.add(cliente);
 	}
 
+	/*
+	 * Agregando mecanicos
+	 */
+
 	public boolean seBuscaMecanico(int id) {
 
 		boolean encontrado = false;
@@ -163,6 +150,33 @@ public class Taller {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
 		} else
 			mecanicos.add(mecanico);
+	}
+
+	/*
+	 * Agregando reparaciones
+	 */
+
+	public boolean seBuscaReparacion(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < trabajos.size() && encontrado; i++) {
+			if (trabajos.get(i).getId() == id) {
+				encontrado = true;
+			}
+		}
+
+		return encontrado;
+	}
+
+	public void agregarTrabajo(Reparacion trabajo) throws Exception {
+		
+		
+
+//		if (seBuscaReparacion(trabajo.getId())) {
+//			throw new Exception("Orden de trabajo ya existe en el sistema");
+//		} else
+//			trabajos.add(trabajo);
 	}
 
 }
