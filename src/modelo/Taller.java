@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 //comentario de prueba
+// soy un idiota
 public class Taller {
 
 	private int id;
