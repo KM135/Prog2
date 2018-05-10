@@ -10,6 +10,7 @@ public class Reparacion {
 	private int kilometraje;
 	
 	private ArrayList<Mecanico>mecanicos;
+	private ArrayList<Vehiculo>autos;
 
 	public Reparacion(int id, String fecha, String descripcion, int kilometraje) {
 		super();
@@ -18,6 +19,7 @@ public class Reparacion {
 		this.descripcion = descripcion;
 		this.kilometraje = kilometraje;
 		mecanicos = new ArrayList<Mecanico>();
+		autos = new ArrayList<Vehiculo>();
 	}
 
 	public int getId() {
@@ -59,4 +61,13 @@ public class Reparacion {
 	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
 		this.mecanicos = mecanicos;
 	}
+
+	public ArrayList<Vehiculo> getAutos() {
+		return autos;
+	}
+
+	public void setAutos(ArrayList<Vehiculo> autos) {
+		this.autos = autos;
+	}
+	
 }

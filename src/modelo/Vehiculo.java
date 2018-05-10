@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Vehiculo {
 	private String placa;
-	private ArrayList<Reparacion> reparaciones;
+	private ArrayList<Propietario> dueño;
 
 	public Vehiculo(String placa) {
 		super();
@@ -19,12 +19,14 @@ public class Vehiculo {
 		this.placa = placa;
 	}
 
-	public ArrayList<Reparacion> getReparaciones() {
-		return reparaciones;
+	public ArrayList<Propietario> getDueño() {
+		return dueño;
 	}
 
-	public void setReparaciones(ArrayList<Reparacion> reparaciones) {
-		this.reparaciones = reparaciones;
+	public void setDueño(ArrayList<Propietario> dueño) {
+		this.dueño = dueño;
 	}
+
+	
 
 }

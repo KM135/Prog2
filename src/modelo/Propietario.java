@@ -7,8 +7,6 @@ public class Propietario {
 	private String nombre;
 	private String direccion;
 	private String telefono;
-	
-	private ArrayList <Vehiculo>carros;
 
 	public Propietario(int cedula, String nombre, String direccion, String telefono) {
 		super();
@@ -16,7 +14,6 @@ public class Propietario {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		carros = new ArrayList <Vehiculo>();
 	}
 
 	public int getCedula() {
@@ -50,14 +47,5 @@ public class Propietario {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-
-	public ArrayList<Vehiculo> getCarros() {
-		return carros;
-	}
-
-	public void setCarros(ArrayList<Vehiculo> carros) {
-		this.carros = carros;
-	}
-
 	
 }
