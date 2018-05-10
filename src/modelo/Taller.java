@@ -49,6 +49,5 @@ public class Taller {
 	public void setTrabajadores(ArrayList<Mecanico> trabajadores) {
 		this.trabajadores = trabajadores;
 	}
-	
 
 }
