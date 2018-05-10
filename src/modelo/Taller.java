@@ -1,7 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-
+//comentario de prueba
 public class Taller {
 
 	private int id;
