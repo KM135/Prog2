@@ -158,17 +158,13 @@ public class Taller {
 	
 	
 	
-	public boolean seBuscaAuto(String placa) {
+	public boolean seBuscaAutoTaller(String placa) {
 
 		boolean encontrado = false;
 
 		for (int i = 0; i < clientes.size() && encontrado; i++) {
-			Cliente temporal = clientes.get(i);
-			 	
-				for (int j = 0; j < temporal.; j++) {
-
-			}
-		}
+			encontrado = clientes.get(i).seBuscaAuto(placa);
+			 }
 		return encontrado;
 	}
 
