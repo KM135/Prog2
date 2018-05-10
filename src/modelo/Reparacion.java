@@ -9,7 +9,6 @@ public class Reparacion {
 	private String descripcion;
 	private int kilometraje;
 
-
 	public Reparacion(int id, String fecha, String descripcion, int kilometraje) {
 		super();
 		this.id = id;

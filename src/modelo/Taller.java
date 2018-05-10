@@ -2,17 +2,24 @@ package modelo;
 
 import java.util.ArrayList;
 
-//comentario de prueba
-// soy un idiota
 public class Taller {
 
 	private int id;
 	private String nombre;
 	private String direccion;
 	private int telefono;
+
+	/*
+	 * Arreglos
+	 */
+
 	private ArrayList<Reparacion> trabajos;
-	private ArrayList <Propietario> clientes;
+	private ArrayList<Propietario> clientes;
 	private ArrayList<Mecanico> mecanicos;
+
+	/*
+	 * Constructor
+	 */
 
 	public Taller(int id, String nombre, String direccion, int telefono) {
 		super();
@@ -22,8 +29,13 @@ public class Taller {
 		this.telefono = telefono;
 		trabajos = new ArrayList<Reparacion>();
 		clientes = new ArrayList<Propietario>();
+		mecanicos = new ArrayList<Mecanico>();
 	}
-
+	
+	/*
+	 * Getters and setters
+	 */
+	
 	public int getId() {
 		return id;
 	}
@@ -72,6 +84,26 @@ public class Taller {
 		this.clientes = clientes;
 	}
 
+	public ArrayList<Reparacion> getTrabajos() {
+		return trabajos;
+	}
+
+	public void setTrabajos(ArrayList<Reparacion> trabajos) {
+		this.trabajos = trabajos;
+	}
+
+	public ArrayList<Mecanico> getMecanicos() {
+		return mecanicos;
+	}
+
+	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
+		this.mecanicos = mecanicos;
+	}
+	
+	//------------------------------
+	//METODOS DE LA CLASE PRINCIPAL
+	//------------------------------
+	
 	public boolean seBuscaReparacion(int id) {
 
 		boolean encontrado = false;
@@ -92,7 +124,7 @@ public class Taller {
 		} else
 			trabajos.add(trabajo);
 	}
-	
+
 	public boolean seBuscaCliente(int id) {
 
 		boolean encontrado = false;
@@ -105,7 +137,7 @@ public class Taller {
 
 		return encontrado;
 	}
-	
+
 	public void agregarCliente(Propietario cliente) throws Exception {
 
 		if (seBuscaCliente(cliente.getCedula())) {
@@ -113,7 +145,7 @@ public class Taller {
 		} else
 			clientes.add(cliente);
 	}
-	
+
 	public boolean seBuscaMecanico(int id) {
 
 		boolean encontrado = false;
@@ -125,7 +157,7 @@ public class Taller {
 		}
 		return encontrado;
 	}
-	
+
 	public void agregarMecanico(Mecanico mecanico) throws Exception {
 		if (seBuscaMecanico(mecanico.getId())) {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");

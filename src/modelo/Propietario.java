@@ -74,6 +74,7 @@ public class Propietario {
 		if (seBuscaAuto(auto.getPlaca())) {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
 		}
+		else autos.add(auto);
 	}
 	
 }

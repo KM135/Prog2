@@ -46,6 +46,4 @@ public class Mecanico {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	
-	
 }

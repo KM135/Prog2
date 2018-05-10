@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Vehiculo {
 	private String placa;
-	private ArrayList<Propietario> dueño;
 
 	public Vehiculo(String placa) {
 		super();
@@ -17,13 +16,5 @@ public class Vehiculo {
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
-	}
-
-	public ArrayList<Propietario> getDueño() {
-		return dueño;
-	}
-
-	public void setDueño(ArrayList<Propietario> dueño) {
-		this.dueño = dueño;
 	}
 }
