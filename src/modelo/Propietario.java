@@ -7,6 +7,7 @@ public class Propietario {
 	private String nombre;
 	private String direccion;
 	private String telefono;
+	private ArrayList <Vehiculo> autos;
 
 	public Propietario(int cedula, String nombre, String direccion, String telefono) {
 		super();
@@ -14,6 +15,7 @@ public class Propietario {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		autos = new ArrayList<Vehiculo>();
 	}
 
 	public int getCedula() {
@@ -46,6 +48,32 @@ public class Propietario {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	
+	public ArrayList<Vehiculo> getAutos() {
+		return autos;
+	}
+
+	public void setAutos(ArrayList<Vehiculo> autos) {
+		this.autos = autos;
+	}
+
+	public boolean seBuscaAuto(String placa) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < autos.size() && encontrado; i++) {
+			if (autos.get(i).getPlaca().equalsIgnoreCase(placa)) {
+				encontrado = true;
+			}
+		}
+		return encontrado;
+	}
+	
+	public void agregarAuto(Vehiculo auto)throws Exception {
+		if (seBuscaAuto(auto.getPlaca())) {
+			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
+		}
 	}
 	
 }

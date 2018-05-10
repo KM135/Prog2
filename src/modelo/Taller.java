@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+
 //comentario de prueba
 // soy un idiota
 public class Taller {
@@ -9,8 +10,9 @@ public class Taller {
 	private String nombre;
 	private String direccion;
 	private int telefono;
-	private ArrayList <Mecanico>trabajadores;
-	
+	private ArrayList<Reparacion> trabajos;
+	private ArrayList <Propietario> clientes;
+	private ArrayList<Mecanico> mecanicos;
 
 	public Taller(int id, String nombre, String direccion, int telefono) {
 		super();
@@ -18,37 +20,117 @@ public class Taller {
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
-		trabajadores = new ArrayList <Mecanico>();
+		trabajos = new ArrayList<Reparacion>();
+		clientes = new ArrayList<Propietario>();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	public String getDireccion() {
 		return direccion;
 	}
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
 	public int getTelefono() {
 		return telefono;
 	}
+
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	public ArrayList<Mecanico> getTrabajadores() {
-		return trabajadores;
+
+	public ArrayList<Reparacion> getArreglos() {
+		return trabajos;
 	}
-	public void setTrabajadores(ArrayList<Mecanico> trabajadores) {
-		this.trabajadores = trabajadores;
+
+	public void setArreglos(ArrayList<Reparacion> arreglos) {
+		this.trabajos = arreglos;
+	}
+
+	public ArrayList<Propietario> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(ArrayList<Propietario> clientes) {
+		this.clientes = clientes;
+	}
+
+	public boolean seBuscaReparacion(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < trabajos.size() && encontrado; i++) {
+			if (trabajos.get(i).getId() == id) {
+				encontrado = true;
+			}
+		}
+
+		return encontrado;
+	}
+
+	public void agregarTrabajo(Reparacion trabajo) throws Exception {
+
+		if (seBuscaReparacion(trabajo.getId())) {
+			throw new Exception("Orden de trabajo ya existe en el sistema");
+		} else
+			trabajos.add(trabajo);
+	}
+	
+	public boolean seBuscaCliente(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < clientes.size() && encontrado; i++) {
+			if (clientes.get(i).getCedula() == id) {
+				encontrado = true;
+			}
+		}
+
+		return encontrado;
+	}
+	
+	public void agregarCliente(Propietario cliente) throws Exception {
+
+		if (seBuscaCliente(cliente.getCedula())) {
+			throw new Exception("El cliente ya existe en el sistema");
+		} else
+			clientes.add(cliente);
+	}
+	
+	public boolean seBuscaMecanico(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < mecanicos.size() && encontrado; i++) {
+			if (mecanicos.get(i).getId() == id) {
+				encontrado = true;
+			}
+		}
+		return encontrado;
+	}
+	
+	public void agregarMecanico(Mecanico mecanico) throws Exception {
+		if (seBuscaMecanico(mecanico.getId())) {
+			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
+		} else
+			mecanicos.add(mecanico);
 	}
 
 }

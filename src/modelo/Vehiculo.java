@@ -26,7 +26,4 @@ public class Vehiculo {
 	public void setDueño(ArrayList<Propietario> dueño) {
 		this.dueño = dueño;
 	}
-
-	
-
 }

@@ -3,14 +3,12 @@ package modelo;
 import java.util.ArrayList;
 
 public class Reparacion {
-	
+
 	private int id;
 	private String fecha;
 	private String descripcion;
 	private int kilometraje;
-	
-	private ArrayList<Mecanico>mecanicos;
-	private ArrayList<Vehiculo>autos;
+
 
 	public Reparacion(int id, String fecha, String descripcion, int kilometraje) {
 		super();
@@ -18,8 +16,6 @@ public class Reparacion {
 		this.fecha = fecha;
 		this.descripcion = descripcion;
 		this.kilometraje = kilometraje;
-		mecanicos = new ArrayList<Mecanico>();
-		autos = new ArrayList<Vehiculo>();
 	}
 
 	public int getId() {
@@ -54,20 +50,4 @@ public class Reparacion {
 		this.kilometraje = kilometraje;
 	}
 
-	public ArrayList<Mecanico> getMecanicos() {
-		return mecanicos;
-	}
-
-	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
-		this.mecanicos = mecanicos;
-	}
-
-	public ArrayList<Vehiculo> getAutos() {
-		return autos;
-	}
-
-	public void setAutos(ArrayList<Vehiculo> autos) {
-		this.autos = autos;
-	}
-	
 }
