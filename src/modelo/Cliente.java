@@ -2,14 +2,14 @@ package modelo;
 
 import java.util.ArrayList;
 
-public class Propietario {
+public class Cliente {
 	private int cedula;
 	private String nombre;
 	private String direccion;
 	private String telefono;
 	private ArrayList <Vehiculo> autos;
 
-	public Propietario(int cedula, String nombre, String direccion, String telefono) {
+	public Cliente(int cedula, String nombre, String direccion, String telefono) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;

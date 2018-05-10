@@ -14,7 +14,7 @@ public class Taller {
 	 */
 
 	private ArrayList<Reparacion> trabajos;
-	private ArrayList<Propietario> clientes;
+	private ArrayList<Cliente> clientes;
 	private ArrayList<Mecanico> mecanicos;
 
 	/*
@@ -28,7 +28,7 @@ public class Taller {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		trabajos = new ArrayList<Reparacion>();
-		clientes = new ArrayList<Propietario>();
+		clientes = new ArrayList<Cliente>();
 		mecanicos = new ArrayList<Mecanico>();
 	}
 
@@ -76,11 +76,11 @@ public class Taller {
 		this.trabajos = arreglos;
 	}
 
-	public ArrayList<Propietario> getClientes() {
+	public ArrayList<Cliente> getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(ArrayList<Propietario> clientes) {
+	public void setClientes(ArrayList<Cliente> clientes) {
 		this.clientes = clientes;
 	}
 
@@ -121,7 +121,7 @@ public class Taller {
 		return encontrado;
 	}
 
-	public void agregarCliente(Propietario cliente) throws Exception {
+	public void agregarCliente(Cliente cliente) throws Exception {
 
 		if (seBuscaCliente(cliente.getCedula())) {
 			throw new Exception("El cliente ya existe en el sistema");
