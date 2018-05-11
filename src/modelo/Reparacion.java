@@ -12,7 +12,7 @@ public class Reparacion {
 
 	public Reparacion(int id, String fecha, String descripcion, String placaAuto, int kilometraje, int idMecanico,
 			String nombreMecanico) {
-		super();
+		
 		this.id = id;
 		this.fecha = fecha;
 		this.descripcion = descripcion;

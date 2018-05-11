@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import modelo.*;
 
-public class Principal {
+public class Controlador {
 
 	public static void main(String[] args) throws Exception {
 
@@ -40,13 +40,15 @@ public class Principal {
 
 				System.out.print("Ingrese el telefono: ");
 				String telefonoCliente = entrada.nextLine();
-				//int telefonoInt = Integer.parseInt(telefonoCliente);
+				int idTel = Integer.parseInt(telefonoCliente);
 				
-				try {
-					local.agregarCliente(new Cliente(idInt, nombreEspectador, direccionCliente, telefonoCliente));
-				} catch (Exception e) {
-					System.out.println("Paila papa");
+				boolean funciona = local.agregarCliente(idInt, nombreEspectador, direccionCliente, idTel);
+				
+				if (funciona == true) {
+					System.out.println("Metodo funcionando");
 				}
+				else System.out.println("Pailarangas");
+				
 				break;
 			}
 			switch (seleccionInt) {

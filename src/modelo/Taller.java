@@ -4,21 +4,30 @@ import java.util.ArrayList;
 
 public class Taller {
 
+	/**
+	 * Atributos de la clase
+	 */
 	private int id;
 	private String nombre;
 	private String direccion;
 	private int telefono;
 
-	/*
-	 * Arreglos
+	/**
+	 * Arreglos de la clase para almacenar ordenes de trabajo, cliente y
+	 * mecanicos.
 	 */
 
 	private ArrayList<Reparacion> trabajos;
 	private ArrayList<Cliente> clientes;
 	private ArrayList<Mecanico> mecanicos;
 
-	/*
+	/**
 	 * Constructor
+	 * 
+	 * @param id
+	 * @param nombre
+	 * @param direccion
+	 * @param telefono
 	 */
 
 	public Taller(int id, String nombre, String direccion, int telefono) {
@@ -32,8 +41,10 @@ public class Taller {
 		mecanicos = new ArrayList<Mecanico>();
 	}
 
-	/*
+	/**
 	 * Getters and setters
+	 * 
+	 * @return
 	 */
 
 	public int getId() {
@@ -99,21 +110,26 @@ public class Taller {
 	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
 		this.mecanicos = mecanicos;
 	}
-
+	
+	//-------------------------------
 	// ------------------------------
 	// METODOS DE LA CLASE PRINCIPAL
 	// ------------------------------
+	//-------------------------------
 
-	/*
-	 * Agreando clientes
+	/**
+	 * Metodo para buscar clientes.
+	 * 
+	 * @param id
+	 * @return
 	 */
 
-	public boolean seBuscaCliente(int id) {
+	public boolean seBuscaCliente(String nombre) {
 
 		boolean encontrado = false;
-
-		for (int i = 0; i < clientes.size() && encontrado; i++) {
-			if (clientes.get(i).getCedula() == id) {
+		
+		for (int i = 0; i < clientes.size() && !encontrado; i++) {
+			if (clientes.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				encontrado = true;
 			}
 		}
@@ -121,100 +137,92 @@ public class Taller {
 		return encontrado;
 	}
 
-	public void agregarCliente(Cliente cliente){
-
-		if (clientes.isEmpty()) {
-			clientes.add(cliente);
-			System.out.println(cliente.getNombre() + " " + cliente.getCedula());
-		}
-
-		else if (seBuscaCliente(cliente.getCedula())) {
-			clientes.add(cliente);
-			System.out.println(cliente.getNombre() + " " + cliente.getCedula());
-		} else {
-			for (int i = 0; i < clientes.size(); i++) {
-				System.out.println(clientes.get(i).getNombre());
+	public void agregarCliente(Cliente cliente) throws Exception {		
+		
+			if (seBuscaCliente(cliente.getNombre())) {
+				throw new Exception("El cliente que intenta ingresar ya existe");
 			}
-		}
+			
+			else clientes.add(cliente);
 	}
-
-	/*
-	 * Buscando autos
-	 */
-	public boolean seBuscaAutoTaller(String placa) {
-
-		boolean encontrado = false;
-
-		for (int i = 0; i < clientes.size() && encontrado; i++) {
-			encontrado = clientes.get(i).seBuscaAuto(placa);
-		}
-		return encontrado;
-	}
-
-	/*
-	 * Agregar autos al cliente
-	 */
-
-	public void agregarAutosAlCliente(int cedula, String placa) throws Exception {
-		for (int i = 0; i < clientes.size(); i++) {
-			if (clientes.get(i).getCedula() == cedula) {
-				clientes.get(i).agregarAuto(placa);
-			}
-		}
-	}
+//
+//	/*
+//	 * Buscando autos
+//	 */
+//	public boolean seBuscaAutoTaller(String placa) {
+//
+//		boolean encontrado = false;
+//
+//		for (int i = 0; i < clientes.size() && encontrado; i++) {
+//			encontrado = clientes.get(i).seBuscaAuto(placa);
+//		}
+//		return encontrado;
+//	}
+//
+//	/*
+//	 * Agregar autos al cliente
+//	 */
+//
+//	public void agregarAutosAlCliente(int cedula, String placa) throws Exception {
+//		for (int i = 0; i < clientes.size(); i++) {
+//			if (clientes.get(i).getCedula() == cedula) {
+//				clientes.get(i).agregarAuto(placa);
+//			}
+//		}
+//	}
 
 	/*
 	 * Agregando mecanicos
 	 */
 
-	public boolean seBuscaMecanico(int id) {
-
-		boolean encontrado = false;
-
-		for (int i = 0; i < mecanicos.size() && encontrado; i++) {
-			if (mecanicos.get(i).getId() == id) {
-				encontrado = true;
-			}
-		}
-		return encontrado;
-	}
-
-	public void agregarMecanico(Mecanico mecanico) throws Exception {
-		if (seBuscaMecanico(mecanico.getId())) {
-			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
-		} else
-			mecanicos.add(mecanico);
-	}
-
-	/*
-	 * Agregando reparaciones
-	 */
-
-	public boolean seBuscaReparacion(int id) {
-
-		boolean encontrado = false;
-
-		for (int i = 0; i < trabajos.size() && encontrado; i++) {
-			if (trabajos.get(i).getId() == id) {
-				encontrado = true;
-			}
-		}
-
-		return encontrado;
-	}
-
-	public void agregarTrabajo(Reparacion trabajo) throws Exception {
-
-		if (seBuscaReparacion(trabajo.getId())) {
-			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
-		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
-			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
-		} else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
-			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
-		}
-
-		else
-			trabajos.add(trabajo);
-	}
+//	public boolean seBuscaMecanico(int id) {
+//
+//		boolean encontrado = false;
+//
+//		for (int i = 0; i < mecanicos.size() && encontrado; i++) {
+//			if (mecanicos.get(i).getId() == id) {
+//				encontrado = true;
+//			}
+//		}
+//		return encontrado;
+//	}
+//
+//	public void agregarMecanico(Mecanico mecanico) throws Exception {
+//		if (seBuscaMecanico(mecanico.getId())) {
+//			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
+//		} else
+//			mecanicos.add(mecanico);
+//	}
+//
+//	/*
+//	 * Agregando reparaciones
+//	 */
+//
+//	public boolean seBuscaReparacion(int id) {
+//
+//		boolean encontrado = false;
+//
+//		for (int i = 0; i < trabajos.size() && encontrado; i++) {
+//			if (trabajos.get(i).getId() == id) {
+//				encontrado = true;
+//			}
+//		}
+//
+//		return encontrado;
+//	}
+//
+//	public void agregarTrabajo(Reparacion trabajo) throws Exception {
+//
+//		if (seBuscaReparacion(trabajo.getId())) {
+//			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
+//		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
+//			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
+//		} else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
+//			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
+//		}
+//
+//		else
+//			trabajos.add(trabajo);
+//	}
 
 }

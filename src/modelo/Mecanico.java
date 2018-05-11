@@ -8,7 +8,7 @@ public class Mecanico {
 	private int telefono;
 
 	public Mecanico(int id, String nombre, String direccion, int telefono) {
-		super();
+		
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
