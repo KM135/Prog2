@@ -125,10 +125,12 @@ public class Taller {
 
 		if (clientes.isEmpty()) {
 			clientes.add(cliente);
+			System.out.println(cliente.getNombre() + " " + cliente.getCedula());
 		}
 
-		else if (!seBuscaCliente(cliente.getCedula())) {
+		else if (seBuscaCliente(cliente.getCedula())) {
 			clientes.add(cliente);
+			System.out.println(cliente.getNombre() + " " + cliente.getCedula());
 		} else {
 			for (int i = 0; i < clientes.size(); i++) {
 				System.out.println(clientes.get(i).getNombre());
