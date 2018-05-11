@@ -70,11 +70,11 @@ public class Cliente {
 		return encontrado;
 	}
 	
-	public void agregarAuto(Vehiculo auto)throws Exception {
-		if (seBuscaAuto(auto.getPlaca())) {
-			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
+	public void agregarAuto(String placa)throws Exception {
+		if (seBuscaAuto(placa)) {
+			throw new Exception("Ya ha registrado este auto para este cliente");
 		}
-		else autos.add(auto);
+		else autos.add(new Vehiculo(placa));
 	}
 	
 }

@@ -22,7 +22,7 @@ public class Taller {
 	 */
 
 	public Taller(int id, String nombre, String direccion, int telefono) {
-		super();
+
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -121,12 +121,44 @@ public class Taller {
 		return encontrado;
 	}
 
-	public void agregarCliente(Cliente cliente) throws Exception {
+	public void agregarCliente(Cliente cliente){
 
-		if (seBuscaCliente(cliente.getCedula())) {
-			throw new Exception("El cliente ya existe en el sistema");
-		} else
+		if (clientes.isEmpty()) {
 			clientes.add(cliente);
+		}
+
+		else if (!seBuscaCliente(cliente.getCedula())) {
+			clientes.add(cliente);
+		} else {
+			for (int i = 0; i < clientes.size(); i++) {
+				System.out.println(clientes.get(i).getNombre());
+			}
+		}
+	}
+
+	/*
+	 * Buscando autos
+	 */
+	public boolean seBuscaAutoTaller(String placa) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < clientes.size() && encontrado; i++) {
+			encontrado = clientes.get(i).seBuscaAuto(placa);
+		}
+		return encontrado;
+	}
+
+	/*
+	 * Agregar autos al cliente
+	 */
+
+	public void agregarAutosAlCliente(int cedula, String placa) throws Exception {
+		for (int i = 0; i < clientes.size(); i++) {
+			if (clientes.get(i).getCedula() == cedula) {
+				clientes.get(i).agregarAuto(placa);
+			}
+		}
 	}
 
 	/*
@@ -150,19 +182,6 @@ public class Taller {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
 		} else
 			mecanicos.add(mecanico);
-	}
-
-	/*
-	 * Buscando autos
-	 */
-	public boolean seBuscaAutoTaller(String placa) {
-
-		boolean encontrado = false;
-
-		for (int i = 0; i < clientes.size() && encontrado; i++) {
-			encontrado = clientes.get(i).seBuscaAuto(placa);
-		}
-		return encontrado;
 	}
 
 	/*
