@@ -146,41 +146,25 @@ public class Taller {
 		else {
 			clientes.add(cliente);
 			System.out.println("El cliente ha sido agregado exitosamente. Tenemos los siguientes clientes");
-			imprimirArreglo();
+			imprimirArregloClientes();
 		}
 	}
 	
-	public void imprimirArreglo() {
+	public void imprimirArregloClientes() {
 		for (int i = 0; i < clientes.size(); i++) {
 			System.out.println(clientes.get(i).getNombre());
 		}
 	}
-	//
-	// /*
-	// * Buscando autos
-	// */
-	// public boolean seBuscaAutoTaller(String placa) {
-	//
-	// boolean encontrado = false;
-	//
-	// for (int i = 0; i < clientes.size() && encontrado; i++) {
-	// encontrado = clientes.get(i).seBuscaAuto(placa);
-	// }
-	// return encontrado;
-	// }
-	//
-	// /*
-	// * Agregar autos al cliente
-	// */
-	//
-	// public void agregarAutosAlCliente(int cedula, String placa) throws
-	// Exception {
-	// for (int i = 0; i < clientes.size(); i++) {
-	// if (clientes.get(i).getCedula() == cedula) {
-	// clientes.get(i).agregarAuto(placa);
-	// }
-	// }
-	// }
+	
+	public void agregarAutoACliente(Vehiculo agregado, String nombreCliente) throws Exception{
+		
+		for (int i = 0; i < clientes.size(); i++) {
+				if (clientes.get(i).getNombre().equalsIgnoreCase(nombreCliente)) {
+					clientes.get(i).agregarAuto(agregado);
+				}
+		}
+	}
+	
 
 	/*
 	 * Agregando mecanicos

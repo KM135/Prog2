@@ -103,11 +103,12 @@ public class Cliente {
 		} else{
 			System.out.println("Vechiculo agregado exitosamente para este cliente");
 			autos.add(auto);
-			imprimirArreglo();
+			System.out.println("Los autos que tenemos registrados son: ");
+			imprimirArregloAutos();
 		}
 	}
 	
-	public void imprimirArreglo() {
+	public void imprimirArregloAutos() {
 		for (int i = 0; i < autos.size(); i++) {
 			System.out.println(autos.get(i).getPlaca());
 		}

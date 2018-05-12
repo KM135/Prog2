@@ -33,7 +33,7 @@ public class Controlador {
 				int idInt = Integer.parseInt(idCliente);
 
 				System.out.print("Ingrese el nombre: ");
-				String nombreEspectador = entrada.nextLine();
+				String nombreCliente = entrada.nextLine();
 
 				System.out.print("Ingrese la direccion: ");
 				String direccionCliente = entrada.nextLine();
@@ -43,7 +43,7 @@ public class Controlador {
 				int idTel = Integer.parseInt(telefonoCliente);
 				
 				try {
-					modelo.agregarCliente(new Cliente(idInt, nombreEspectador, direccionCliente, idTel));
+					modelo.agregarCliente(new Cliente(idInt, nombreCliente, direccionCliente, idTel));
 				} catch (Exception e) {
 					System.out.println("Ese cliente ya esta registrado, revise los datos");
 				}	
@@ -52,6 +52,18 @@ public class Controlador {
 			}
 			switch (seleccionInt) {
 			case 2:
+				
+				System.out.println("Nombre del propietario del auto que desea ingresar");
+				String nombrePropietario = entrada.nextLine();
+				System.out.println("Ingrese la placa del vehiculo");
+				String placa = entrada.nextLine();
+				
+				try {
+					modelo.agregarAutos(new Vehiculo(placa), nombrePropietario);
+				} catch (Exception e) {
+					System.out.println("El cliente no existe o el auto ya ha sido ingresado, revise nuevamente");
+				}
+				
 				break;
 			}
 			switch (seleccionInt) {
