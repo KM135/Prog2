@@ -90,6 +90,40 @@ public class Controlador {
 			}
 			switch (seleccionInt) {
 			case 4:
+				
+				System.out.println("Numero de la orden de trabajo: ");
+				String idTxt = entrada.nextLine();
+				int id = Integer.parseInt(idTxt);
+				
+				System.out.println("Fecha: ");
+				String fecha = entrada.nextLine();
+				
+				System.out.println("Descripcion: ");
+				String descripcion = entrada.nextLine();
+						
+				System.out.println("Nombre del cliente: ");
+				String nombreCliente = entrada.nextLine();
+				
+				System.out.println("Placa del auto: ");
+				String placa = entrada.nextLine();
+				
+				System.out.println("Kilometraje: ");
+				String kilTxt = entrada.nextLine();
+				int kilometraje = Integer.parseInt(kilTxt);
+				
+				System.out.println("ID del mecanico: ");
+				String idMecanicoTxt = entrada.nextLine();
+				int idMecanico = Integer.parseInt(idMecanicoTxt);
+				
+				System.out.println("Nombre del mecanico: ");
+				String nombreMecanico = entrada.nextLine();
+				
+				try {
+					modelo.registrarTrabajo(new Reparacion(id, fecha, descripcion, nombreCliente, placa, kilometraje, idMecanico, nombreMecanico));
+				} catch (Exception e) {
+					System.out.println("Hubo un problema al registrar esta orden de trabajo");
+				}
+				
 				break;
 			}
 

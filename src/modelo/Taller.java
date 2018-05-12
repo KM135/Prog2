@@ -136,13 +136,14 @@ public class Taller {
 
 		return encontrado;
 	}
-	
+
 	/**
 	 * Metodo para agregar clientes al sistema
+	 * 
 	 * @param cliente
 	 * @throws Exception
 	 */
-	
+
 	public void agregarCliente(Cliente cliente) throws Exception {
 
 		if (seBuscaCliente(cliente.getNombre())) {
@@ -161,9 +162,10 @@ public class Taller {
 			System.out.println(clientes.get(i).getNombre());
 		}
 	}
-	
+
 	/**
 	 * Metodo para agregar autos a un cliente.
+	 * 
 	 * @param agregado
 	 * @param nombreCliente
 	 * @throws Exception
@@ -179,6 +181,7 @@ public class Taller {
 
 	/**
 	 * Metodo que busca mecanicos en el sistema antes de agregar uno
+	 * 
 	 * @param id
 	 * @return
 	 */
@@ -194,9 +197,10 @@ public class Taller {
 		}
 		return encontrado;
 	}
-	
+
 	/**
 	 * Metodo que agrega mecanicos
+	 * 
 	 * @param mecanico
 	 * @throws Exception
 	 */
@@ -204,53 +208,73 @@ public class Taller {
 	public void agregarMecanico(Mecanico mecanico) throws Exception {
 		if (seBuscaMecanico(mecanico.getId())) {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
-		} else{
+		} else {
 			System.out.println("El mecanico ha sido agregado exitosamente. Tenemos los siguientes clientes");
 			mecanicos.add(mecanico);
 			imprimirArregloMecanicos();
 		}
 	}
-	
+
 	public void imprimirArregloMecanicos() {
 		for (int i = 0; i < mecanicos.size(); i++) {
 			System.out.println(mecanicos.get(i).getNombre());
 		}
 	}
-	
-	
-	//
-	// /*
-	// * Agregando reparaciones
-	// */
-	//
-	// public boolean seBuscaReparacion(int id) {
-	//
-	// boolean encontrado = false;
-	//
-	// for (int i = 0; i < trabajos.size() && encontrado; i++) {
-	// if (trabajos.get(i).getId() == id) {
-	// encontrado = true;
-	// }
-	// }
-	//
-	// return encontrado;
-	// }
-	//
-	// public void agregarTrabajo(Reparacion trabajo) throws Exception {
-	//
-	// if (seBuscaReparacion(trabajo.getId())) {
-	// throw new Exception("La orden de trabajo que intenta registrar ya existe
-	// en el sistema");
-	// } else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
-	// throw new Exception("El mecanico que esta asignando no trabaja en este
-	// taller");
-	// } else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
-	// throw new Exception("El auto no corresponde a ningun cliente. Verifique
-	// los clientes creados y sus autos");
-	// }
-	//
-	// else
-	// trabajos.add(trabajo);
-	// }
 
+	/*
+	 * Agregando reparaciones
+	 */
+
+	public boolean seBuscaReparacion(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < trabajos.size() && !encontrado; i++) {
+			if (trabajos.get(i).getId() == id) {
+				encontrado = true;
+			}
+		}
+
+		return encontrado;
+	}
+
+	public boolean seBuscaAuto(String nombre, String auto) {
+		boolean autoEncontrado = false;
+		for (int i = 0; i < clientes.size(); i++) {
+			if (clientes.get(i).getNombre().equalsIgnoreCase(nombre)) {
+				Cliente tmp = clientes.get(i);
+				ArrayList<Vehiculo> autosCliente = tmp.getAutos();
+				for (int j = 0; j < autosCliente.size(); j++) {
+					if (autosCliente.get(i).getPlaca().equalsIgnoreCase(auto)) {
+						autoEncontrado = true;
+					}
+				}
+			}
+		}
+		return autoEncontrado;
+	}
+
+	public void agregarTrabajo(Reparacion trabajo) throws Exception {
+
+		if (seBuscaReparacion(trabajo.getId())) {
+			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
+		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
+			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
+		} else if (!seBuscaAuto(trabajo.getNombreCliente(), trabajo.getPlacaAuto())) {
+			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
+		}
+
+		else {
+			System.out.println("La orden de trabajo ha sido creada exitosamente");
+			trabajos.add(trabajo);
+			imprimirOrdenesDeTrabajo();
+		}
+	}
+
+	public void imprimirOrdenesDeTrabajo() {
+		for (int i = 0; i < trabajos.size(); i++) {
+			System.out.println("La orden de trabajo " + trabajos.get(i).getId() + " se registro el "
+					+ trabajos.get(i).getFecha() + " para el vehiculo " + trabajos.get(i).getPlacaAuto());
+		}
+	}
 }

@@ -5,17 +5,19 @@ public class Reparacion {
 	private int id;
 	private String fecha;
 	private String descripcion;
+	private String nombreCliente;
 	private String placaAuto;
 	private int kilometraje;
 	private int idMecanico;
 	private String nombreMecanico;
 
-	public Reparacion(int id, String fecha, String descripcion, String placaAuto, int kilometraje, int idMecanico,
-			String nombreMecanico) {
-		
+	public Reparacion(int id, String fecha, String descripcion, String nombreCliente, String placaAuto, int kilometraje,
+			int idMecanico, String nombreMecanico) {
+
 		this.id = id;
 		this.fecha = fecha;
 		this.descripcion = descripcion;
+		this.nombreCliente = nombreCliente;
 		this.placaAuto = placaAuto;
 		this.kilometraje = kilometraje;
 		this.idMecanico = idMecanico;
@@ -44,6 +46,14 @@ public class Reparacion {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 
 	public String getPlacaAuto() {

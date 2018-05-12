@@ -19,4 +19,8 @@ public class Modelo {
 	public void agregarMecanicos(Mecanico agregado) throws Exception{
 		taller.agregarMecanico(agregado);
 	}
+	
+	public void registrarTrabajo(Reparacion reparacion)throws Exception{
+		taller.agregarTrabajo(reparacion);
+	}
 }
