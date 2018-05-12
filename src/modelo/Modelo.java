@@ -15,4 +15,8 @@ public class Modelo {
 	public void agregarAutos(Vehiculo agregado, String nombreCliente) throws Exception{
 		taller.agregarAutoACliente(agregado, nombreCliente);
 	}
+	
+	public void agregarMecanicos(Mecanico agregado) throws Exception{
+		taller.agregarMecanico(agregado);
+	}
 }

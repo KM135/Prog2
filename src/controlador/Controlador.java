@@ -53,9 +53,9 @@ public class Controlador {
 			switch (seleccionInt) {
 			case 2:
 				
-				System.out.println("Nombre del propietario del auto que desea ingresar");
+				System.out.print("Nombre del propietario del auto que desea ingresar: ");
 				String nombrePropietario = entrada.nextLine();
-				System.out.println("Ingrese la placa del vehiculo");
+				System.out.print("Ingrese la placa del vehiculo: ");
 				String placa = entrada.nextLine();
 				
 				try {
@@ -68,6 +68,24 @@ public class Controlador {
 			}
 			switch (seleccionInt) {
 			case 3:
+				
+				System.out.println("Cedula: ");
+				String id = entrada.nextLine();
+				int cedula = Integer.parseInt(id);
+				System.out.println("Nombre: ");
+				String nombre = entrada.nextLine();
+				System.out.println("Direccion: ");
+				String direccion = entrada.nextLine();
+				System.out.println("Telefono: ");
+				String telefono = entrada.nextLine();
+				int tel = Integer.parseInt(telefono);
+				
+				try {
+					modelo.agregarMecanicos(new Mecanico(cedula, nombre, direccion, tel));
+				} catch (Exception e) {
+					System.out.println("Ese mecanico ya existe en nuestro sistema");
+				}
+				
 				break;
 			}
 			switch (seleccionInt) {

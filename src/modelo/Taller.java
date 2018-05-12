@@ -136,7 +136,13 @@ public class Taller {
 
 		return encontrado;
 	}
-
+	
+	/**
+	 * Metodo para agregar clientes al sistema
+	 * @param cliente
+	 * @throws Exception
+	 */
+	
 	public void agregarCliente(Cliente cliente) throws Exception {
 
 		if (seBuscaCliente(cliente.getNombre())) {
@@ -149,46 +155,69 @@ public class Taller {
 			imprimirArregloClientes();
 		}
 	}
-	
+
 	public void imprimirArregloClientes() {
 		for (int i = 0; i < clientes.size(); i++) {
 			System.out.println(clientes.get(i).getNombre());
 		}
 	}
 	
-	public void agregarAutoACliente(Vehiculo agregado, String nombreCliente) throws Exception{
-		
+	/**
+	 * Metodo para agregar autos a un cliente.
+	 * @param agregado
+	 * @param nombreCliente
+	 * @throws Exception
+	 */
+	public void agregarAutoACliente(Vehiculo agregado, String nombreCliente) throws Exception {
+
 		for (int i = 0; i < clientes.size(); i++) {
-				if (clientes.get(i).getNombre().equalsIgnoreCase(nombreCliente)) {
-					clientes.get(i).agregarAuto(agregado);
-				}
+			if (clientes.get(i).getNombre().equalsIgnoreCase(nombreCliente)) {
+				clientes.get(i).agregarAuto(agregado);
+			}
+		}
+	}
+
+	/**
+	 * Metodo que busca mecanicos en el sistema antes de agregar uno
+	 * @param id
+	 * @return
+	 */
+
+	public boolean seBuscaMecanico(int id) {
+
+		boolean encontrado = false;
+
+		for (int i = 0; i < mecanicos.size() && !encontrado; i++) {
+			if (mecanicos.get(i).getId() == id) {
+				encontrado = true;
+			}
+		}
+		return encontrado;
+	}
+	
+	/**
+	 * Metodo que agrega mecanicos
+	 * @param mecanico
+	 * @throws Exception
+	 */
+
+	public void agregarMecanico(Mecanico mecanico) throws Exception {
+		if (seBuscaMecanico(mecanico.getId())) {
+			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
+		} else{
+			System.out.println("El mecanico ha sido agregado exitosamente. Tenemos los siguientes clientes");
+			mecanicos.add(mecanico);
+			imprimirArregloMecanicos();
 		}
 	}
 	
-
-	/*
-	 * Agregando mecanicos
-	 */
-
-	// public boolean seBuscaMecanico(int id) {
-	//
-	// boolean encontrado = false;
-	//
-	// for (int i = 0; i < mecanicos.size() && encontrado; i++) {
-	// if (mecanicos.get(i).getId() == id) {
-	// encontrado = true;
-	// }
-	// }
-	// return encontrado;
-	// }
-	//
-	// public void agregarMecanico(Mecanico mecanico) throws Exception {
-	// if (seBuscaMecanico(mecanico.getId())) {
-	// throw new Exception("El mecanico que intenta registrar ya existe en el
-	// sistema");
-	// } else
-	// mecanicos.add(mecanico);
-	// }
+	public void imprimirArregloMecanicos() {
+		for (int i = 0; i < mecanicos.size(); i++) {
+			System.out.println(mecanicos.get(i).getNombre());
+		}
+	}
+	
+	
 	//
 	// /*
 	// * Agregando reparaciones
