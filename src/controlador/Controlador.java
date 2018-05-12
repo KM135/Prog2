@@ -41,8 +41,12 @@ public class Controlador {
 				System.out.print("Ingrese el telefono: ");
 				String telefonoCliente = entrada.nextLine();
 				int idTel = Integer.parseInt(telefonoCliente);
-
-				modelo.agregarCliente(new Cliente(idInt, nombreEspectador, direccionCliente, idTel));
+				
+				try {
+					modelo.agregarCliente(new Cliente(idInt, nombreEspectador, direccionCliente, idTel));
+				} catch (Exception e) {
+					System.out.println("Ese cliente ya esta registrado, revise los datos");
+				}	
 
 				break;
 			}

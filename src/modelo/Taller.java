@@ -145,6 +145,7 @@ public class Taller {
 
 		else {
 			clientes.add(cliente);
+			System.out.println("El cliente ha sido agregado exitosamente. Tenemos los siguientes clientes");
 			imprimirArreglo();
 		}
 	}
