@@ -110,12 +110,12 @@ public class Taller {
 	public void setMecanicos(ArrayList<Mecanico> mecanicos) {
 		this.mecanicos = mecanicos;
 	}
-	
-	//-------------------------------
+
+	// -------------------------------
 	// ------------------------------
 	// METODOS DE LA CLASE PRINCIPAL
 	// ------------------------------
-	//-------------------------------
+	// -------------------------------
 
 	/**
 	 * Metodo para buscar clientes.
@@ -127,7 +127,7 @@ public class Taller {
 	public boolean seBuscaCliente(String nombre) {
 
 		boolean encontrado = false;
-		
+
 		for (int i = 0; i < clientes.size() && !encontrado; i++) {
 			if (clientes.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				encontrado = true;
@@ -137,92 +137,106 @@ public class Taller {
 		return encontrado;
 	}
 
-	public void agregarCliente(Cliente cliente) throws Exception {		
-		
-			if (seBuscaCliente(cliente.getNombre())) {
-				throw new Exception("El cliente que intenta ingresar ya existe");
-			}
-			
-			else clientes.add(cliente);
+	public void agregarCliente(Cliente cliente) throws Exception {
+
+		if (seBuscaCliente(cliente.getNombre())) {
+			throw new Exception("El cliente que intenta ingresar ya existe");
+		}
+
+		else {
+			clientes.add(cliente);
+			imprimirArreglo();
+		}
 	}
-//
-//	/*
-//	 * Buscando autos
-//	 */
-//	public boolean seBuscaAutoTaller(String placa) {
-//
-//		boolean encontrado = false;
-//
-//		for (int i = 0; i < clientes.size() && encontrado; i++) {
-//			encontrado = clientes.get(i).seBuscaAuto(placa);
-//		}
-//		return encontrado;
-//	}
-//
-//	/*
-//	 * Agregar autos al cliente
-//	 */
-//
-//	public void agregarAutosAlCliente(int cedula, String placa) throws Exception {
-//		for (int i = 0; i < clientes.size(); i++) {
-//			if (clientes.get(i).getCedula() == cedula) {
-//				clientes.get(i).agregarAuto(placa);
-//			}
-//		}
-//	}
+	
+	public void imprimirArreglo() {
+		for (int i = 0; i < clientes.size(); i++) {
+			System.out.println(clientes.get(i).getNombre());
+		}
+	}
+	//
+	// /*
+	// * Buscando autos
+	// */
+	// public boolean seBuscaAutoTaller(String placa) {
+	//
+	// boolean encontrado = false;
+	//
+	// for (int i = 0; i < clientes.size() && encontrado; i++) {
+	// encontrado = clientes.get(i).seBuscaAuto(placa);
+	// }
+	// return encontrado;
+	// }
+	//
+	// /*
+	// * Agregar autos al cliente
+	// */
+	//
+	// public void agregarAutosAlCliente(int cedula, String placa) throws
+	// Exception {
+	// for (int i = 0; i < clientes.size(); i++) {
+	// if (clientes.get(i).getCedula() == cedula) {
+	// clientes.get(i).agregarAuto(placa);
+	// }
+	// }
+	// }
 
 	/*
 	 * Agregando mecanicos
 	 */
 
-//	public boolean seBuscaMecanico(int id) {
-//
-//		boolean encontrado = false;
-//
-//		for (int i = 0; i < mecanicos.size() && encontrado; i++) {
-//			if (mecanicos.get(i).getId() == id) {
-//				encontrado = true;
-//			}
-//		}
-//		return encontrado;
-//	}
-//
-//	public void agregarMecanico(Mecanico mecanico) throws Exception {
-//		if (seBuscaMecanico(mecanico.getId())) {
-//			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
-//		} else
-//			mecanicos.add(mecanico);
-//	}
-//
-//	/*
-//	 * Agregando reparaciones
-//	 */
-//
-//	public boolean seBuscaReparacion(int id) {
-//
-//		boolean encontrado = false;
-//
-//		for (int i = 0; i < trabajos.size() && encontrado; i++) {
-//			if (trabajos.get(i).getId() == id) {
-//				encontrado = true;
-//			}
-//		}
-//
-//		return encontrado;
-//	}
-//
-//	public void agregarTrabajo(Reparacion trabajo) throws Exception {
-//
-//		if (seBuscaReparacion(trabajo.getId())) {
-//			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
-//		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
-//			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
-//		} else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
-//			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
-//		}
-//
-//		else
-//			trabajos.add(trabajo);
-//	}
+	// public boolean seBuscaMecanico(int id) {
+	//
+	// boolean encontrado = false;
+	//
+	// for (int i = 0; i < mecanicos.size() && encontrado; i++) {
+	// if (mecanicos.get(i).getId() == id) {
+	// encontrado = true;
+	// }
+	// }
+	// return encontrado;
+	// }
+	//
+	// public void agregarMecanico(Mecanico mecanico) throws Exception {
+	// if (seBuscaMecanico(mecanico.getId())) {
+	// throw new Exception("El mecanico que intenta registrar ya existe en el
+	// sistema");
+	// } else
+	// mecanicos.add(mecanico);
+	// }
+	//
+	// /*
+	// * Agregando reparaciones
+	// */
+	//
+	// public boolean seBuscaReparacion(int id) {
+	//
+	// boolean encontrado = false;
+	//
+	// for (int i = 0; i < trabajos.size() && encontrado; i++) {
+	// if (trabajos.get(i).getId() == id) {
+	// encontrado = true;
+	// }
+	// }
+	//
+	// return encontrado;
+	// }
+	//
+	// public void agregarTrabajo(Reparacion trabajo) throws Exception {
+	//
+	// if (seBuscaReparacion(trabajo.getId())) {
+	// throw new Exception("La orden de trabajo que intenta registrar ya existe
+	// en el sistema");
+	// } else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
+	// throw new Exception("El mecanico que esta asignando no trabaja en este
+	// taller");
+	// } else if (!seBuscaAutoTaller(trabajo.getPlacaAuto())) {
+	// throw new Exception("El auto no corresponde a ningun cliente. Verifique
+	// los clientes creados y sus autos");
+	// }
+	//
+	// else
+	// trabajos.add(trabajo);
+	// }
 
 }

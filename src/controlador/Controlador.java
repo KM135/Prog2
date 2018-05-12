@@ -9,7 +9,7 @@ public class Controlador {
 	public static void main(String[] args) throws Exception {
 
 		Scanner entrada = new Scanner(System.in);
-		Taller local = new Taller(1, "Papiperradas.com", "Av Siempre Viva", 5921650);
+		Modelo modelo = new Modelo();
 		boolean avance = true;
 
 		while (avance == true) {
@@ -21,17 +21,17 @@ public class Controlador {
 			System.out.println(" 2) Agregar auto de un cliente");
 			System.out.println(" 3) Agregar mecanico");
 			System.out.println(" 4) Registrar reparacion");
-			
+
 			String seleccion = entrada.nextLine();
 			int seleccionInt = Integer.parseInt(seleccion);
-			
+
 			switch (seleccionInt) {
 			case 1:
-				
+
 				System.out.print("Ingrese la cedula: ");
 				String idCliente = entrada.nextLine();
 				int idInt = Integer.parseInt(idCliente);
-				
+
 				System.out.print("Ingrese el nombre: ");
 				String nombreEspectador = entrada.nextLine();
 
@@ -41,14 +41,9 @@ public class Controlador {
 				System.out.print("Ingrese el telefono: ");
 				String telefonoCliente = entrada.nextLine();
 				int idTel = Integer.parseInt(telefonoCliente);
-				
-				boolean funciona = local.agregarCliente(idInt, nombreEspectador, direccionCliente, idTel);
-				
-				if (funciona == true) {
-					System.out.println("Metodo funcionando");
-				}
-				else System.out.println("Pailarangas");
-				
+
+				modelo.agregarCliente(new Cliente(idInt, nombreEspectador, direccionCliente, idTel));
+
 				break;
 			}
 			switch (seleccionInt) {
@@ -63,15 +58,14 @@ public class Controlador {
 			case 4:
 				break;
 			}
-			
+
 			System.out.println("Desea continuar? S/N");
 			String continuaremos = entrada.nextLine();
 
 			if (continuaremos.equalsIgnoreCase("N")) {
 				avance = false;
 			}
-			
+
 		}
 	}
-
 }

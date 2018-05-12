@@ -100,7 +100,16 @@ public class Cliente {
 	public void agregarAuto(Vehiculo auto) throws Exception {
 		if (seBuscaAuto(auto.getPlaca())) {
 			throw new Exception("Ya ha registrado este auto para este cliente");
-		} else
+		} else{
+			System.out.println("Vechiculo agregado exitosamente para este cliente");
 			autos.add(auto);
+			imprimirArreglo();
+		}
+	}
+	
+	public void imprimirArreglo() {
+		for (int i = 0; i < autos.size(); i++) {
+			System.out.println(autos.get(i).getPlaca());
+		}
 	}
 }
