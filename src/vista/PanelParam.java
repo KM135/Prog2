@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanelOperaciones extends JPanel{
+public class PanelParam extends JPanel{
 	
 	private JButton promedio, mejor, menosc, agregarC, agregarE; 
 	private VentanaPrincipal ventana;
 	
-	public PanelOperaciones(VentanaPrincipal pVentana){
+	public PanelParam(VentanaPrincipal pVentana){
 		ventana= pVentana;
 		setLayout(new GridLayout(5, 1));
 		setBorder(new TitledBorder("Operaciones"));

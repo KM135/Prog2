@@ -11,13 +11,13 @@ import controlador.Controlador;
 
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
-	public final String PROMEDIO = "PROMEDIO";
+	public final String CLIENTE = "CLIENTE";
 	public final String MEJOR = "MEJOR";
 	public final String MENOSC = "MENOSC";
 	public final String AGREGARCURSO = "AGREGARCURSO";
 	public final String AGREGARESTUDIANTE = "AGREGARESTUDIANTE";
-	
-	private PanelOperaciones operaciones;
+
+	private PanelSuperior superior;
 	private PanelInfo info;
 	private Controlador controlador;
 	
@@ -25,13 +25,13 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		
 		controlador = pControlador;
 		setSize(600, 300);
-		setTitle("El Tutor - Tu login");
+		setTitle("Taller Papiperradas");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setLayout(new GridLayout(1, 2));
+		setLayout(new GridLayout(2, 1));
 		
-		operaciones = new PanelOperaciones(this);
-		add (operaciones);
+		superior = new PanelSuperior(this);
+		add (superior);
 		info = new PanelInfo();
 		add(info);
 		
