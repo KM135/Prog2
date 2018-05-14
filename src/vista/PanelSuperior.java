@@ -14,7 +14,7 @@ public class PanelSuperior extends JPanel {
 	public PanelSuperior(VentanaPrincipal pVentana){
 		ventana= pVentana;
 		setLayout(new GridLayout(1, 2));
-		setBorder(new TitledBorder("Panel Superior"));
+		//setBorder(new TitledBorder(" "));
 		
 		parametros = new PanelParam(ventana);
 		add (parametros);

@@ -8,37 +8,32 @@ import javax.swing.border.TitledBorder;
 
 public class PanelParam extends JPanel{
 	
-	private JButton promedio, mejor, menosc, agregarC, agregarE; 
+	private JButton cliente, auto, mecanico, reparacion, agregarE; 
 	private VentanaPrincipal ventana;
 	
 	public PanelParam(VentanaPrincipal pVentana){
 		ventana= pVentana;
-		setLayout(new GridLayout(5, 1));
-		setBorder(new TitledBorder("Operaciones"));
+		setLayout(new GridLayout(2, 2, 10, 10));
+		setBorder(new TitledBorder("Parametros iniciales "));
 		
-		promedio=new JButton("Calcula promedio");
-		promedio.setActionCommand(ventana.CLIENTE);
-		promedio.addActionListener(ventana);
-		add(promedio);
+		cliente=new JButton("Crear cliente");
+		cliente.setActionCommand(ventana.CLIENTE);
+		cliente.addActionListener(ventana);
+		add(cliente);
 		
-		mejor=new JButton("Curso mejor nota");
-		mejor.setActionCommand(ventana.MEJOR);
-		mejor.addActionListener(ventana);
-		add(mejor);
+		auto=new JButton("Asignar auto");
+		auto.setActionCommand(ventana.AUTO);
+		auto.addActionListener(ventana);
+		add(auto);
 		
-		menosc=new JButton("Cursos menos creditos");
-		menosc.setActionCommand(ventana.MENOSC);
-		menosc.addActionListener(ventana);
-		add(menosc);
+		mecanico=new JButton("Crear mecanico");
+		mecanico.setActionCommand(ventana.MECANICO);
+		mecanico.addActionListener(ventana);
+		add(mecanico);
 		
-		agregarC=new JButton("Agregar curso");
-		agregarC.setActionCommand(ventana.AGREGARCURSO);
-		agregarC.addActionListener(ventana);
-		add(agregarC);
-		
-		agregarE=new JButton("Agregar Estudiante");
-		agregarE.setActionCommand(ventana.AGREGARESTUDIANTE);
-		agregarE.addActionListener(ventana);
-		add(agregarE);
+		reparacion=new JButton("Registrar orden");
+		reparacion.setActionCommand(ventana.REPARACION);
+		reparacion.addActionListener(ventana);
+		add(reparacion);
 	}
 }

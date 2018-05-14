@@ -8,39 +8,39 @@ import javax.swing.border.TitledBorder;
 
 public class PanelInfo extends JPanel{
 	
-	private JLabel lbNombre;
-	private JLabel lbApellido;
-	private JLabel lbGenero;
-	private JLabel lbEdad;
-	private JLabel lbCursos;
+	private JLabel id;
+	private JLabel placa;
+	private JLabel propietario;
+	private JLabel mecanico;
+	private JLabel descripcion;
 	
 	public PanelInfo(){
 		
-		lbNombre = new JLabel("Nombre: ");
-		lbApellido = new JLabel("Apellido: ");
-		lbGenero = new JLabel("Genero: ");
-		lbEdad = new JLabel("Edad: ");
-		lbCursos = new JLabel("Cursos: ");
+		id = new JLabel("ID: ");
+		placa = new JLabel("Placa: ");
+		propietario = new JLabel("Propietario: ");
+		mecanico = new JLabel("Mecanico: ");
+		descripcion = new JLabel("Descripcion: ");
 		
-		setBorder(new TitledBorder("Informacion del estudiante"));
+		setBorder(new TitledBorder("Panel de informacion"));
 		setLayout(new GridLayout(5, 1, 2, 2));
 		
-		add(lbNombre);
-		add(lbApellido);
-		add(lbGenero);
-		add(lbEdad);
-		add(lbCursos);
+		add(id);
+		add(placa);
+		add(propietario);
+		add(mecanico);
+		add(descripcion);
 	}
 	
 	public void enviarInfo(String nombre, String apellido, String genero, int edad) {
-		lbNombre.setText("Nombre: " + nombre);
-		lbApellido.setText("Apellido: " + apellido);
-		lbGenero.setText("Genero: " + genero);
-		lbEdad.setText("Edad: " + Integer.toString(edad));
+		id.setText("Nombre: " + nombre);
+		placa.setText("Apellido: " + apellido);
+		propietario.setText("Genero: " + genero);
+		mecanico.setText("Edad: " + Integer.toString(edad));
 		validate();
 	}
 	
 	public void enviarCursos(int cantidad){
-		lbCursos.setText("Cursos: " + Integer.toString(cantidad));
+		descripcion.setText("Cursos: " + Integer.toString(cantidad));
 	}
 }

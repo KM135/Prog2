@@ -12,10 +12,13 @@ import controlador.Controlador;
 public class VentanaPrincipal extends JFrame implements ActionListener {
 
 	public final String CLIENTE = "CLIENTE";
-	public final String MEJOR = "MEJOR";
-	public final String MENOSC = "MENOSC";
-	public final String AGREGARCURSO = "AGREGARCURSO";
-	public final String AGREGARESTUDIANTE = "AGREGARESTUDIANTE";
+	public final String AUTO = "AUTO";
+	public final String MECANICO = "MECANICO";
+	public final String REPARACION = "REPARACION";
+	
+	public final String LISTAREPARACIONES = "LISTAREPARACIONES";
+	public final String HISTXAUTO = "HISTXAUTO";
+	public final String AUTOSYDUEÑO = "AUTOSYDUEÑO";
 
 	private PanelSuperior superior;
 	private PanelInfo info;
@@ -48,7 +51,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+
 		String grito = e.getActionCommand();
 		
 //		if (grito.equals(AGREGARESTUDIANTE)) {
