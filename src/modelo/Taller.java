@@ -124,12 +124,12 @@ public class Taller {
 	 * @return
 	 */
 
-	public boolean seBuscaCliente(String nombre) {
+	public boolean seBuscaCliente(int cedula) {
 
 		boolean encontrado = false;
 
 		for (int i = 0; i < clientes.size() && !encontrado; i++) {
-			if (clientes.get(i).getNombre().equalsIgnoreCase(nombre)) {
+			if (clientes.get(i).getCedula() == cedula) {
 				encontrado = true;
 			}
 		}
@@ -146,7 +146,7 @@ public class Taller {
 
 	public void agregarCliente(Cliente cliente) throws Exception {
 
-		if (seBuscaCliente(cliente.getNombre())) {
+		if (seBuscaCliente(cliente.getCedula())) {
 			throw new Exception("El cliente que intenta ingresar ya existe");
 		}
 
@@ -170,13 +170,21 @@ public class Taller {
 	 * @param nombreCliente
 	 * @throws Exception
 	 */
-	public void agregarAutoACliente(Vehiculo agregado, String nombreCliente) throws Exception {
+	public void agregarAutoACliente(Vehiculo agregado, int cedulaCliente) throws Exception {
 
-		for (int i = 0; i < clientes.size(); i++) {
-			if (clientes.get(i).getNombre().equalsIgnoreCase(nombreCliente)) {
-				clientes.get(i).agregarAuto(agregado);
+		if (clientes.isEmpty()) {
+			throw new Exception("No hay clientes registrados en el sistema.");
+		}
+		else{
+			for (int i = 0; i < clientes.size(); i++) {
+				if (clientes.get(i).getCedula() == cedulaCliente) {
+					clientes.get(i).agregarAuto(agregado);
+					System.out.println("El auto " + agregado.getPlaca() + " ha sido agregado para el cliente "
+							+ clientes.get(i).getNombre() + " con cedula " + clientes.get(i).getCedula());
+				}
 			}
 		}
+		
 	}
 
 	/**
@@ -255,11 +263,13 @@ public class Taller {
 	}
 
 	public void agregarTrabajo(Reparacion trabajo) throws Exception {
-
+		if (clientes.isEmpty()) {
+			throw new Exception("No hay clientes registrados en el sistema.");
+		}
 		if (seBuscaReparacion(trabajo.getId())) {
 			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
 		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
-			throw new Exception("El mecanico que esta asignando no trabaja en este taller");
+			throw new Exception("El mecanico que esta ingresando no trabaja en este taller");
 		} else if (!seBuscaAuto(trabajo.getNombreCliente(), trabajo.getPlacaAuto())) {
 			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");
 		}
