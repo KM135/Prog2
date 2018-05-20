@@ -15,7 +15,7 @@ public class Controlador {
 	private VenPrincipal venInicial;
 	
 	public Controlador() {
-		ventana = new VenTallerPrin(this);
+		//ventana = new VenTallerPrin(this);
 		venInicial = new VenPrincipal(); 
 		modelo = new Modelo();
 	}
