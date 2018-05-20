@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 import controlador.Controlador;
 
-public class VentanaPrincipal extends JFrame implements ActionListener {
+public class VenTallerPrin extends JFrame implements ActionListener {
 	/**
 	 * Botones para parametrizar el sistema
 	 */
@@ -28,8 +28,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	/**
 	 * Panles que componen la ventana principal
 	 */
-	private PanelSuperior superior;
-	private PanelInfo info;
+	private PanTallerSup superior;
+	private PanTallerInfo info;
 	private Controlador controlador;
 
 	/**
@@ -37,7 +37,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	 * 
 	 * @param pControlador
 	 */
-	public VentanaPrincipal(Controlador pControlador) {
+	public VenTallerPrin(Controlador pControlador) {
 
 		controlador = pControlador;
 		setSize(600, 300);
@@ -46,9 +46,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 1));
 
-		superior = new PanelSuperior(this);
+		superior = new PanTallerSup(this);
 		add(superior);
-		info = new PanelInfo();
+		info = new PanTallerInfo();
 		add(info);
 
 		setVisible(true);

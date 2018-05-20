@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanelParam extends JPanel{
+public class PanTallerParam extends JPanel{
 	
 	private JButton cliente, auto, mecanico, reparacion, agregarE; 
-	private VentanaPrincipal ventana;
+	private VenTallerPrin ventana;
 	
-	public PanelParam(VentanaPrincipal pVentana){
+	public PanTallerParam(VenTallerPrin pVentana){
 		ventana= pVentana;
 		setLayout(new GridLayout(2, 2, 10, 10));
 		setBorder(new TitledBorder("Parametros iniciales "));

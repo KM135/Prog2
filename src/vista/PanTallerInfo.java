@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanelInfo extends JPanel{
+public class PanTallerInfo extends JPanel{
 	
 	private JLabel id;
 	private JLabel placa;
@@ -14,7 +14,7 @@ public class PanelInfo extends JPanel{
 	private JLabel mecanico;
 	private JLabel descripcion;
 	
-	public PanelInfo(){
+	public PanTallerInfo(){
 		
 		id = new JLabel("ID: ");
 		placa = new JLabel("Placa: ");
