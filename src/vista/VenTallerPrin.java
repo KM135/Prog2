@@ -19,14 +19,14 @@ public class VenTallerPrin extends JFrame implements ActionListener {
 	public final String REPARACION = "REPARACION";
 
 	/**
-	 * Botos de requerimientos funcionales
+	 * Botones de requerimientos funcionales
 	 */
 	public final String LISTAREPARACIONES = "LISTAREPARACIONES";
 	public final String HISTXAUTO = "HISTXAUTO";
 	public final String AUTOSYDUEÑO = "AUTOSYDUEÑO";
 
 	/**
-	 * Panles que componen la ventana principal
+	 * Paneles que componen la ventana principal
 	 */
 	private PanTallerSup superior;
 	private PanTallerInfo info;

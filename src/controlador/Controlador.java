@@ -10,12 +10,12 @@ import vista.VenTallerPrin;
 
 public class Controlador {
 
-	//private VenTallerPrin ventana;
+	private VenTallerPrin ventana;
 	private Modelo modelo;
 	private VenPrincipal venInicial;
 	
 	public Controlador() {
-		//ventana = new VenTallerPrin(this);
+		ventana = new VenTallerPrin(this);
 		venInicial = new VenPrincipal(); 
 		modelo = new Modelo();
 	}

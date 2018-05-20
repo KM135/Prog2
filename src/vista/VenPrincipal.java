@@ -14,8 +14,12 @@ import controlador.Controlador;
 public class VenPrincipal extends JFrame implements ActionListener {
 
 	public final String PORTADA = "PORTADA";
+	public final String TALLER = "TALLER";
+	public final String CHAT = "CHAT";
+	public final String SALIR = "SALIR";
 
 	private JButton portada, taller, chat, salir;
+	private Controlador controlador;
 
 	public VenPrincipal() {
 
@@ -36,8 +40,8 @@ public class VenPrincipal extends JFrame implements ActionListener {
 		chat = new JButton("Chat");
 		add(chat);
 
-		chat = new JButton("Chat");
-		add(chat);
+		salir = new JButton("Salir");
+		add(salir);
 
 		setVisible(true);
 	}
@@ -49,6 +53,12 @@ public class VenPrincipal extends JFrame implements ActionListener {
 			VenPortada inicial = new VenPortada();
 			inicial.setVisible(true);
 		}
+		
+		else if(grito.equals(TALLER)){
+			VenTallerPrin iniTaller = new VenTallerPrin(controlador);
+			iniTaller.setVisible(true);
+		}
+		
 
 	}
 
