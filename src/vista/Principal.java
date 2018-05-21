@@ -13,8 +13,12 @@ import controlador.ControladorTaller;
 import modelo.Cliente;
 import modelo.Modelo;
 
-public class Principal extends JFrame implements ActionListener {
+public class Principal extends JFrame implements ActionListener, Runnable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public final String PORTADA = "PORTADA";
 	public final String TALLER = "TALLER";
 	public final String CHAT = "CHAT";
@@ -24,7 +28,7 @@ public class Principal extends JFrame implements ActionListener {
 	private Modelo modelo;
 
 	public Principal() {
-		
+
 		setSize(600, 300);
 		setTitle("Ventana de inicio");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -50,12 +54,11 @@ public class Principal extends JFrame implements ActionListener {
 		setVisible(true);
 	}
 	
-	@Override
+
 	public void actionPerformed(ActionEvent e) {
 		String grito = e.getActionCommand();
-		if (grito.equals(PORTADA)) {
-			Portada inicial = new Portada();
-			inicial.setVisible(true);
+		if (grito.equals(PORTADA)) {				
+			run();
 		}
 		
 		else if(grito.equals(TALLER)){
@@ -63,4 +66,22 @@ public class Principal extends JFrame implements ActionListener {
 		}
 	}
 
+	public void run() {
+		
+		try {	
+//			Portada presentacion = new Portada();
+//			presentacion.setVisible(true);
+//			Thread.sleep(2000);
+//			presentacion.dispose();
+			
+			Presentacion integrantes = new Presentacion();
+			integrantes.setVisible(true);
+			//Thread.sleep(2000);
+			//integrantes.dispose();
+			
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+		
+	}
 }
