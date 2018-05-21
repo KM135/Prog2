@@ -10,5 +10,4 @@ public class Inicio {
 		Hilo miHilo = new Hilo();
 		miHilo.start();
 	}
-
 }
