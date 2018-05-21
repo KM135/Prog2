@@ -4,8 +4,8 @@ public class Inicio {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Controlador controlador = new Controlador();
+		ControladorInicio principal = new ControladorInicio();
+		//ControladorTaller controlador = new ControladorTaller();
 		
 	}
 

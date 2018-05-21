@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanTallerOp extends JPanel{
+public class Operaciones extends JPanel{
 	
 	private JButton reparaciones, historialXAuto, autosregistrados; 
-	private VenTallerPrin ventana;
+	private Taller ventana;
 	
-	public PanTallerOp(VenTallerPrin pVentana){
+	public Operaciones(Taller pVentana){
 		ventana= pVentana;
 		setLayout(new GridLayout(3, 1, 10, 10));
 		setBorder(new TitledBorder("Operaciones"));

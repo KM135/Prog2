@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import controlador.Controlador;
+import controlador.ControladorTaller;
 
-public class VenTallerPrin extends JFrame implements ActionListener {
+public class Taller extends JFrame implements ActionListener {
 	/**
 	 * Botones para parametrizar el sistema
 	 */
@@ -28,16 +28,16 @@ public class VenTallerPrin extends JFrame implements ActionListener {
 	/**
 	 * Paneles que componen la ventana principal
 	 */
-	private PanTallerSup superior;
+	private PanelSuperior superior;
 	private PanTallerInfo info;
-	private Controlador controlador;
+	private ControladorTaller controlador;
 
 	/**
 	 * Constructor
 	 * 
 	 * @param pControlador
 	 */
-	public VenTallerPrin(Controlador pControlador) {
+	public Taller(ControladorTaller pControlador) {
 
 		controlador = pControlador;
 		setSize(600, 300);
@@ -46,7 +46,7 @@ public class VenTallerPrin extends JFrame implements ActionListener {
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 1));
 
-		superior = new PanTallerSup(this);
+		superior = new PanelSuperior(this);
 		add(superior);
 		info = new PanTallerInfo();
 		add(info);

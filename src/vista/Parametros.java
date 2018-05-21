@@ -6,34 +6,34 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-public class PanTallerParam extends JPanel{
+public class Parametros extends JPanel{
 	
 	private JButton cliente, auto, mecanico, reparacion, agregarE; 
-	private VenTallerPrin ventana;
+	private Taller taller;
 	
-	public PanTallerParam(VenTallerPrin pVentana){
-		ventana= pVentana;
+	public Parametros(Taller taller){
+		this.taller=taller;
 		setLayout(new GridLayout(2, 2, 10, 10));
 		setBorder(new TitledBorder("Parametros iniciales "));
 		
 		cliente=new JButton("Crear cliente");
-		cliente.setActionCommand(ventana.CLIENTE);
-		cliente.addActionListener(ventana);
+		cliente.setActionCommand(taller.CLIENTE);
+		cliente.addActionListener(taller);
 		add(cliente);
 		
 		auto=new JButton("Asignar auto");
-		auto.setActionCommand(ventana.AUTO);
-		auto.addActionListener(ventana);
+		auto.setActionCommand(taller.AUTO);
+		auto.addActionListener(taller);
 		add(auto);
 		
 		mecanico=new JButton("Crear mecanico");
-		mecanico.setActionCommand(ventana.MECANICO);
-		mecanico.addActionListener(ventana);
+		mecanico.setActionCommand(taller.MECANICO);
+		mecanico.addActionListener(taller);
 		add(mecanico);
 		
 		reparacion=new JButton("Registrar orden");
-		reparacion.setActionCommand(ventana.REPARACION);
-		reparacion.addActionListener(ventana);
+		reparacion.setActionCommand(taller.REPARACION);
+		reparacion.addActionListener(taller);
 		add(reparacion);
 	}
 }

@@ -9,9 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.border.TitledBorder;
 
-import controlador.Controlador;
+import controlador.ControladorTaller;
+import modelo.Cliente;
+import modelo.Modelo;
 
-public class VenPrincipal extends JFrame implements ActionListener {
+public class Principal extends JFrame implements ActionListener {
 
 	public final String PORTADA = "PORTADA";
 	public final String TALLER = "TALLER";
@@ -19,10 +21,10 @@ public class VenPrincipal extends JFrame implements ActionListener {
 	public final String SALIR = "SALIR";
 
 	private JButton portada, taller, chat, salir;
-	private Controlador controlador;
+	private Modelo modelo;
 
-	public VenPrincipal() {
-
+	public Principal() {
+		
 		setSize(600, 300);
 		setTitle("Ventana de inicio");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -47,22 +49,18 @@ public class VenPrincipal extends JFrame implements ActionListener {
 
 		setVisible(true);
 	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String grito = e.getActionCommand();
 		if (grito.equals(PORTADA)) {
-			VenPortada inicial = new VenPortada();
+			Portada inicial = new Portada();
 			inicial.setVisible(true);
 		}
 		
 		else if(grito.equals(TALLER)){
-			VenTallerPrin iniTaller = new VenTallerPrin(controlador);
-			iniTaller.setVisible(true);
-			
+			ControladorTaller controlador = new ControladorTaller();
 		}
-		
-
 	}
 
 }

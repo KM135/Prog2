@@ -9,11 +9,11 @@ import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-public class VenPortada extends JFrame {
+public class Portada extends JFrame {
 
 	private Image fondo = new ImageIcon("Royal.JPG").getImage();
 
-	public VenPortada() {
+	public Portada() {
 		setSize(300, 300);
 		setTitle("Portada");
 		setLocationRelativeTo(null);
