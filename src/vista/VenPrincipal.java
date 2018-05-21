@@ -59,6 +59,7 @@ public class VenPrincipal extends JFrame implements ActionListener {
 		else if(grito.equals(TALLER)){
 			VenTallerPrin iniTaller = new VenTallerPrin(controlador);
 			iniTaller.setVisible(true);
+			
 		}
 		
 
