@@ -182,6 +182,7 @@ public class Taller {
 					System.out.println("El auto " + agregado.getPlaca() + " ha sido agregado para el cliente "
 							+ clientes.get(i).getNombre() + " con cedula " + clientes.get(i).getCedula());
 				}
+				else throw new Exception("Esa cedula no esta registrada o el auto ya esta registrado");
 			}
 		}
 		

@@ -29,7 +29,7 @@ public class Taller extends JFrame implements ActionListener {
 	 * Paneles que componen la ventana principal
 	 */
 	private PanelSuperior superior;
-	private PanTallerInfo info;
+	private Reportes info;
 	private ControladorTaller controlador;
 
 	/**
@@ -48,7 +48,7 @@ public class Taller extends JFrame implements ActionListener {
 
 		superior = new PanelSuperior(this);
 		add(superior);
-		info = new PanTallerInfo();
+		info = new Reportes();
 		add(info);
 
 		setVisible(true);
@@ -60,6 +60,10 @@ public class Taller extends JFrame implements ActionListener {
 
 	public void error(String mensaje) {
 		JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public void mostrarReportes(){
+		info.setText("Prueba de envio al text area");
 	}
 
 	@Override
@@ -83,6 +87,7 @@ public class Taller extends JFrame implements ActionListener {
 			String nombre = JOptionPane.showInputDialog("Ingrese el numero de cedula del propietario");
 			int propietario = Integer.parseInt(nombre);
 			controlador.agregarAuto(placa, propietario);
+			mostrarReportes();
 		}
 		
 		else if (grito.equals(MECANICO)) {
