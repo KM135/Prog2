@@ -10,12 +10,12 @@ import vista.VenTallerPrin;
 
 public class Controlador {
 
-	private VenTallerPrin ventana;
+	//private VenTallerPrin ventana;
 	private Modelo modelo;
 	private VenPrincipal venInicial;
 	
 	public Controlador() {
-		ventana = new VenTallerPrin(this);
+		//ventana = new VenTallerPrin(this);
 		venInicial = new VenPrincipal(); 
 		modelo = new Modelo();
 	}
@@ -23,18 +23,18 @@ public class Controlador {
 	public void agregarCliente(int cedula, String nombre, String direccion, int telefono) {
 		try {
 			modelo.agregarCliente(new Cliente(cedula, nombre, direccion, telefono));
-			ventana.aviso("Cliente agregado satisfactoriamente");
+			//ventana.aviso("Cliente agregado satisfactoriamente");
 		} catch (Exception e) {
-			ventana.error(e.getMessage());
+			//ventana.error(e.getMessage());
 		}
 	}
 
 	public void agregarAuto(String placa, int cedula) {
 		try {
 			modelo.agregarAutos(new Vehiculo(placa), cedula);
-			ventana.aviso("Auto agregado satisfactoriamente");
+			//ventana.aviso("Auto agregado satisfactoriamente");
 		} catch (Exception e) {
-			ventana.error(e.getMessage());
+			//ventana.error(e.getMessage());
 		}
 	}
 
@@ -42,7 +42,7 @@ public class Controlador {
 		try {
 			modelo.agregarMecanicos(new Mecanico(id, nombre, direccion, telefono));
 		} catch (Exception e) {
-			ventana.error(e.getMessage());
+			//ventana.error(e.getMessage());
 		}
 	}
 
@@ -52,7 +52,7 @@ public class Controlador {
 		try {
 			modelo.registrarTrabajo(new Reparacion(id, fecha, descripcion, nombreCliente, placaAuto, kilometraje, idMecanico, nombreMecanico));
 		} catch (Exception e) {
-			ventana.error(e.getMessage());
+			//ventana.error(e.getMessage());
 		}
 	}
 }
