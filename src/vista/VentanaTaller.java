@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -64,11 +65,22 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 	
-	public void mostrarReportes(){
-		info.setText("Pruebaaaaa");
-	}
+//
+//	public void probarenvio(){
+//		if(!trabajadores.isEmpty())
+//		{ // persona es tu arraylist o list
+//			Iterator iterador = trabajadores.listIterator(); // el objeto iterador te
+//															// ayuda a recorrer una
+//															// coleccion.
+//			while (iterador.hasNext()) {
+//				info.append(iterador.next() + "\n"); // el objeto info es un JTextArea
+//														// y el método append agrega
+//														// el contenido de persona
+//														// al area de texto
+//			}
+//		}
+//	}
 	
-	public ArrayList<Mecanico> entregarMecanicos = controlador.entregarMecanicos();
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -119,6 +131,10 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			int idMecanico = Integer.parseInt(idMecanicoTxt);
 			String nombreMecanico = JOptionPane.showInputDialog("Ingrese el nombre del mecanico");
 			controlador.agregarReparacion(id, fecha, descripcion, nombreCliente, placaAuto, kilometraje, idMecanico, nombreMecanico);
+		}
+		
+		else if (grito.equals(LISTAREPARACIONES)){
+			//probarenvio();
 		}
 	}
 }

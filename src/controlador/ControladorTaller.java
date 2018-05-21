@@ -56,7 +56,4 @@ public class ControladorTaller {
 		}
 	}
 	
-	public ArrayList<Mecanico> entregarMecanicos(){
-		return modelo.entregarMecanicos();
-	}
 }

@@ -25,9 +25,4 @@ public class Modelo {
 	public void registrarTrabajo(Reparacion reparacion)throws Exception{
 		taller.agregarTrabajo(reparacion);
 	}
-
-	
-	public ArrayList<Mecanico> entregarMecanicos() {
-		return taller.getMecanicos();
-	}
 }
