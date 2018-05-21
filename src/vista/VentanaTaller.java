@@ -3,13 +3,15 @@ package vista;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import controlador.ControladorTaller;
+import modelo.Mecanico;
 
-public class Taller extends JFrame implements ActionListener {
+public class VentanaTaller extends JFrame implements ActionListener {
 	/**
 	 * Botones para parametrizar el sistema
 	 */
@@ -37,7 +39,7 @@ public class Taller extends JFrame implements ActionListener {
 	 * 
 	 * @param pControlador
 	 */
-	public Taller(ControladorTaller pControlador) {
+	public VentanaTaller(ControladorTaller pControlador) {
 
 		controlador = pControlador;
 		setSize(600, 300);
@@ -63,8 +65,10 @@ public class Taller extends JFrame implements ActionListener {
 	}
 	
 	public void mostrarReportes(){
-		info.setText("Prueba de envio al text area");
+		info.setText("Pruebaaaaa");
 	}
+	
+	public ArrayList<Mecanico> entregarMecanicos = controlador.entregarMecanicos();
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -87,7 +91,6 @@ public class Taller extends JFrame implements ActionListener {
 			String nombre = JOptionPane.showInputDialog("Ingrese el numero de cedula del propietario");
 			int propietario = Integer.parseInt(nombre);
 			controlador.agregarAuto(placa, propietario);
-			mostrarReportes();
 		}
 		
 		else if (grito.equals(MECANICO)) {

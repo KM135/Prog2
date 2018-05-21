@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Modelo {
 	
 	private Taller taller;
@@ -22,5 +24,10 @@ public class Modelo {
 	
 	public void registrarTrabajo(Reparacion reparacion)throws Exception{
 		taller.agregarTrabajo(reparacion);
+	}
+
+	
+	public ArrayList<Mecanico> entregarMecanicos() {
+		return taller.getMecanicos();
 	}
 }

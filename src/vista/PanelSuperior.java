@@ -7,11 +7,11 @@ import javax.swing.border.TitledBorder;
 
 public class PanelSuperior extends JPanel {
 	
-	private Taller taller;
+	private VentanaTaller taller;
 	private Parametros parametros;
 	private Operaciones operaciones;
 	
-	public PanelSuperior(Taller taller){
+	public PanelSuperior(VentanaTaller taller){
 		this.taller=taller;
 		setLayout(new GridLayout(1, 2));
 		

@@ -9,9 +9,9 @@ import javax.swing.border.TitledBorder;
 public class Parametros extends JPanel{
 	
 	private JButton cliente, auto, mecanico, reparacion, agregarE; 
-	private Taller taller;
+	private VentanaTaller taller;
 	
-	public Parametros(Taller taller){
+	public Parametros(VentanaTaller taller){
 		this.taller=taller;
 		setLayout(new GridLayout(2, 2, 10, 10));
 		setBorder(new TitledBorder("Parametros iniciales "));

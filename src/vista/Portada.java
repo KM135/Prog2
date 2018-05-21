@@ -11,10 +11,10 @@ import javax.swing.JFrame;
 
 public class Portada extends JFrame {
 
-	private Image fondo = new ImageIcon("Royal.JPG").getImage();
+	private Image fondo = new ImageIcon("Portada.jpg").getImage();
 
 	public Portada() {
-		setSize(300, 300);
+		setSize(640, 360);
 		setTitle("Portada");
 		setLocationRelativeTo(null);
 	}

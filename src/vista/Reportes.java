@@ -10,7 +10,7 @@ import javax.swing.border.TitledBorder;
 public class Reportes extends JTextArea{
 	
 	public Reportes(){	
-		setBorder(new TitledBorder("Panel de informacion"));
+		setBorder(new TitledBorder("Consulta de reportes"));
 		//setLayout(new GridLayout(5, 1, 2, 2));
 	}
 }

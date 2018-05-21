@@ -9,9 +9,9 @@ import javax.swing.border.TitledBorder;
 public class Operaciones extends JPanel{
 	
 	private JButton reparaciones, historialXAuto, autosregistrados; 
-	private Taller ventana;
+	private VentanaTaller ventana;
 	
-	public Operaciones(Taller pVentana){
+	public Operaciones(VentanaTaller pVentana){
 		ventana= pVentana;
 		setLayout(new GridLayout(3, 1, 10, 10));
 		setBorder(new TitledBorder("Operaciones"));

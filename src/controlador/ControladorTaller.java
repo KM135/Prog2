@@ -1,20 +1,22 @@
 package controlador;
 
+import java.util.ArrayList;
+
 import modelo.Cliente;
 import modelo.Mecanico;
 import modelo.Modelo;
 import modelo.Reparacion;
 import modelo.Vehiculo;
 import vista.Principal;
-import vista.Taller;
+import vista.VentanaTaller;
 
 public class ControladorTaller {
 
-	private Taller taller;
+	private VentanaTaller taller;
 	private Modelo modelo;
 	
 	public ControladorTaller() {
-		taller = new Taller(this);
+		taller = new VentanaTaller(this);
 		modelo = new Modelo();
 	}
 
@@ -52,5 +54,9 @@ public class ControladorTaller {
 		} catch (Exception e) {
 			taller.error(e.getMessage());
 		}
+	}
+	
+	public ArrayList<Mecanico> entregarMecanicos(){
+		return modelo.entregarMecanicos();
 	}
 }
