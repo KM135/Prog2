@@ -134,7 +134,10 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		}
 		
 		else if (grito.equals(LISTAREPARACIONES)){
-			//probarenvio();
+			for(int i=0; i<=10;i++)
+	        {
+	         info.append("hola mundo\n");
+	        }
 		}
 	}
 }

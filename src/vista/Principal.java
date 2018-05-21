@@ -13,12 +13,10 @@ import controlador.ControladorTaller;
 import modelo.Cliente;
 import modelo.Modelo;
 
-public class Principal extends JFrame implements ActionListener, Runnable {
-
+public class Principal extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	public final String PORTADA = "PORTADA";
 	public final String TALLER = "TALLER";
 	public final String CHAT = "CHAT";
@@ -53,35 +51,16 @@ public class Principal extends JFrame implements ActionListener, Runnable {
 
 		setVisible(true);
 	}
-	
 
 	public void actionPerformed(ActionEvent e) {
 		String grito = e.getActionCommand();
-		if (grito.equals(PORTADA)) {				
-			run();
+		if (grito.equals(PORTADA)) {
+			Hilo miHilo = new Hilo();
+			miHilo.start();
 		}
-		
-		else if(grito.equals(TALLER)){
+
+		else if (grito.equals(TALLER)) {
 			ControladorTaller controlador = new ControladorTaller();
 		}
-	}
-
-	public void run() {
-		
-		try {	
-//			Portada presentacion = new Portada();
-//			presentacion.setVisible(true);
-//			Thread.sleep(2000);
-//			presentacion.dispose();
-			
-			Presentacion integrantes = new Presentacion();
-			integrantes.setVisible(true);
-			//Thread.sleep(2000);
-			//integrantes.dispose();
-			
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-		
 	}
 }
