@@ -35,6 +35,8 @@ public class VenPrincipal extends JFrame implements ActionListener {
 		add(portada);
 
 		taller = new JButton("Taller");
+		taller.setActionCommand(TALLER);
+		taller.addActionListener(this);
 		add(taller);
 
 		chat = new JButton("Chat");
