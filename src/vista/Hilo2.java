@@ -7,7 +7,7 @@ public class Hilo2 extends Thread{
 		Chat chat = new Chat();
 		chat.setVisible(true);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

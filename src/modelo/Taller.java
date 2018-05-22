@@ -79,12 +79,18 @@ public class Taller {
 		this.telefono = telefono;
 	}
 
-	public ArrayList<Reparacion> getArreglos() {
+	
+	/**
+	 * 
+	 * @return
+	 */
+	
+	public ArrayList<Reparacion> getTrabajos() {
 		return trabajos;
 	}
 
-	public void setArreglos(ArrayList<Reparacion> arreglos) {
-		this.trabajos = arreglos;
+	public void setTrabajos(ArrayList<Reparacion> trabajos) {
+		this.trabajos = trabajos;
 	}
 
 	public ArrayList<Cliente> getClientes() {
@@ -93,14 +99,6 @@ public class Taller {
 
 	public void setClientes(ArrayList<Cliente> clientes) {
 		this.clientes = clientes;
-	}
-
-	public ArrayList<Reparacion> getTrabajos() {
-		return trabajos;
-	}
-
-	public void setTrabajos(ArrayList<Reparacion> trabajos) {
-		this.trabajos = trabajos;
 	}
 
 	public ArrayList<Mecanico> getMecanicos() {
@@ -159,7 +157,7 @@ public class Taller {
 
 	public void imprimirArregloClientes() {
 		for (int i = 0; i < clientes.size(); i++) {
-			System.out.println(clientes.get(i).getNombre());
+			System.out.println(clientes.get(i).getNombre() + " cedula: " + clientes.get(i).getCedula());
 		}
 	}
 
@@ -174,17 +172,27 @@ public class Taller {
 
 		if (clientes.isEmpty()) {
 			throw new Exception("No hay clientes registrados en el sistema.");
-		} else {
+		}
+		
+		else if (!seBuscaCliente(cedulaCliente)) {
+			throw new Exception("El cliente que intenta ingresar NO existe");
+		}
+		
+		else {
+			
 			for (int i = 0; i < clientes.size(); i++) {
+				
 				if (clientes.get(i).getCedula() == cedulaCliente) {
-					clientes.get(i).agregarAuto(agregado);
+					clientes.get(i).agregarAuto(agregado);		
 					System.out.println("El auto " + agregado.getPlaca() + " ha sido agregado para el cliente "
 							+ clientes.get(i).getNombre() + " con cedula " + clientes.get(i).getCedula());
-				} else
-					throw new Exception("Esa cedula no esta registrada");
+				} 
+				
+				else {
+					throw new Exception("RARO ERROR");
+				}			
 			}
 		}
-
 	}
 
 	/**
@@ -194,12 +202,12 @@ public class Taller {
 	 * @return
 	 */
 
-	public boolean seBuscaMecanico(int id) {
+	public boolean seBuscaMecanico(String nombre) {
 
 		boolean encontrado = false;
 
 		for (int i = 0; i < mecanicos.size() && !encontrado; i++) {
-			if (mecanicos.get(i).getId() == id) {
+			if (mecanicos.get(i).getNombre().equalsIgnoreCase(nombre)) {
 				encontrado = true;
 			}
 		}
@@ -215,11 +223,11 @@ public class Taller {
 
 	public void agregarMecanico(Mecanico mecanico) throws Exception {
 
-		if (mecanicos.isEmpty()) {
-			throw new Exception("No hay mecanicos registrados en el sistema.");
-		}
+//		if (mecanicos.isEmpty()) {
+//			throw new Exception("No hay mecanicos registrados en el sistema.");
+//		}
 
-		else if (seBuscaMecanico(mecanico.getId())) {
+		if (seBuscaMecanico(mecanico.getNombre())) {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
 		} else {
 			System.out.println("El mecanico ha sido agregado exitosamente. Tenemos los siguientes clientes");
@@ -273,7 +281,7 @@ public class Taller {
 		}
 		if (seBuscaReparacion(trabajo.getId())) {
 			throw new Exception("La orden de trabajo que intenta registrar ya existe en el sistema");
-		} else if (!seBuscaMecanico(trabajo.getIdMecanico())) {
+		} else if (!seBuscaMecanico(trabajo.getNombreMecanico())) {
 			throw new Exception("El mecanico que esta ingresando no trabaja en este taller");
 		} else if (!seBuscaAuto(trabajo.getNombreCliente(), trabajo.getPlacaAuto())) {
 			throw new Exception("El auto no corresponde a ningun cliente. Verifique los clientes creados y sus autos");

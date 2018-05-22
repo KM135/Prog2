@@ -45,7 +45,7 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		controlador = pControlador;
 		setSize(600, 300);
 		setTitle("Taller Papiperradas");
-		//setDefaultCloseOperation(EXIT_ON_CLOSE);
+		// setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 1));
 
@@ -64,7 +64,7 @@ public class VentanaTaller extends JFrame implements ActionListener {
 	public void error(String mensaje) {
 		JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -87,7 +87,7 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			int propietario = Integer.parseInt(nombre);
 			controlador.agregarAuto(placa, propietario);
 		}
-		
+
 		else if (grito.equals(MECANICO)) {
 			String cedulaTxt = JOptionPane.showInputDialog("Ingrese la cedula");
 			int cedula = Integer.parseInt(cedulaTxt);
@@ -97,10 +97,11 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			int telefono = Integer.parseInt(telefonoTXT);
 			controlador.agregarMecanico(cedula, nombre, direccion, telefono);
 		}
-		
-		//int id, String fecha, String descripcion, String nombreCliente, String placaAuto, int kilometraje,
-		//int idMecanico, String nombreMecanico
-		
+
+		// int id, String fecha, String descripcion, String nombreCliente,
+		// String placaAuto, int kilometraje,
+		// int idMecanico, String nombreMecanico
+
 		else if (grito.equals(REPARACION)) {
 			String idTxt = JOptionPane.showInputDialog("Ingrese el id del trabajo a registrar");
 			int id = Integer.parseInt(idTxt);
@@ -110,15 +111,25 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			String placaAuto = JOptionPane.showInputDialog("Ingrese la placa del vehiculo");
 			String kilometrajeTXT = JOptionPane.showInputDialog("Ingrese el kilometraje");
 			int kilometraje = Integer.parseInt(kilometrajeTXT);
-			String idMecanicoTxt = JOptionPane.showInputDialog("Ingrese el id del mecanico que realiza el trabajo");
-			int idMecanico = Integer.parseInt(idMecanicoTxt);
 			String nombreMecanico = JOptionPane.showInputDialog("Ingrese el nombre del mecanico");
-			controlador.agregarReparacion(id, fecha, descripcion, nombreCliente, placaAuto, kilometraje, idMecanico, nombreMecanico);
+			controlador.agregarReparacion(id, fecha, descripcion, nombreCliente, placaAuto, kilometraje,
+					nombreMecanico);
+		}
+
+		else if (grito.equals(AUTOSYDUEÑO)) {
+			info.setText(controlador.dueniosAutos());
+			System.out.println(controlador.dueniosAutos());
 		}
 		
-		else if (grito.equals(AUTOSYDUEÑO)){
-	         info.setText(controlador.dueniosAutos());
-	         System.out.println(controlador.dueniosAutos());
+		else if (grito.equalsIgnoreCase(LISTAREPARACIONES)){
+			info.setText(controlador.reparaciones());
+			System.out.println(controlador.reparaciones());
+		}
+		
+		else if (grito.equalsIgnoreCase(HISTXAUTO)) {
+			String placa = JOptionPane.showInputDialog("Ingrese la placa que desea consultar");
+			info.setText(controlador.historialAuto(placa));
+			System.out.println(controlador.historialAuto(placa));
 		}
 	}
 }

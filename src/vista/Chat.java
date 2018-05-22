@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Chat extends JFrame{
 	
-	private Image fondo = new ImageIcon("mia.JPG").getImage();
+	private Image fondo = new ImageIcon("Portada-Homero.jpg").getImage();
 
 	public Chat() {
 		setSize(640, 360);

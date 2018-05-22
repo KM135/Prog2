@@ -29,4 +29,8 @@ public class Modelo {
 	public ArrayList<Cliente> darClientes() {
 		return taller.getClientes();
 	}
+	
+	public ArrayList<Reparacion>darReparaciones(){
+		return taller.getTrabajos();
+	}
 }

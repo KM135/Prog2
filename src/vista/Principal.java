@@ -32,6 +32,7 @@ public class Principal extends JFrame implements ActionListener {
 		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 2, 20, 20));
+		setUndecorated(true);
 
 		portada = new JButton("Portada");
 		portada.setActionCommand(PORTADA);
