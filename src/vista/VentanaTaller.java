@@ -45,7 +45,7 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		controlador = pControlador;
 		setSize(600, 300);
 		setTitle("Taller Papiperradas");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 1));
 

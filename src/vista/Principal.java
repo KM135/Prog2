@@ -44,6 +44,8 @@ public class Principal extends JFrame implements ActionListener {
 		add(taller);
 
 		chat = new JButton("Chat");
+		chat.setActionCommand(CHAT);
+		chat.addActionListener(this);
 		add(chat);
 
 		salir = new JButton("Salir");
@@ -66,8 +68,15 @@ public class Principal extends JFrame implements ActionListener {
 			ControladorTaller controlador = new ControladorTaller();
 		}
 		
+		else if (grito.equals(CHAT)) {
+		Hilo2 miHilo2 = new Hilo2();
+		miHilo2.start();
+	}
+		
 		else if (grito.equals(SALIR)){
 			System.exit(0);
 		}
+		
+
 	}
 }
