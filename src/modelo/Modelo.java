@@ -26,5 +26,7 @@ public class Modelo {
 		taller.agregarTrabajo(reparacion);
 	}
 	
-	
+	public ArrayList<Cliente> darClientes() {
+		return taller.getClientes();
+	}
 }

@@ -56,4 +56,15 @@ public class ControladorTaller {
 		}
 	}
 	
+	public String dueniosAutos(){
+		String datosTxt = "\n" + "---- REPORTE DE VEHICULOS Y PROPIETARIOS ----" + "\n" + "\n";
+		for (int i = 0; i < modelo.darClientes().size(); i++) {
+			datosTxt += "El cliente " + modelo.darClientes().get(i).getNombre() + " tiene registrados los siguientes vechiculos: " + "\n";
+			for (int j = 0; j < modelo.darClientes().get(i).getAutos().size(); j++) {
+				datosTxt += "\t" + "Placa: " + modelo.darClientes().get(i).getAutos().get(j).getPlaca() + "\n";
+			}
+		}
+		return datosTxt;
+	}
+	
 }

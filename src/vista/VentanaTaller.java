@@ -65,23 +65,6 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
 	}
 	
-//
-//	public void probarenvio(){
-//		if(!trabajadores.isEmpty())
-//		{ // persona es tu arraylist o list
-//			Iterator iterador = trabajadores.listIterator(); // el objeto iterador te
-//															// ayuda a recorrer una
-//															// coleccion.
-//			while (iterador.hasNext()) {
-//				info.append(iterador.next() + "\n"); // el objeto info es un JTextArea
-//														// y el método append agrega
-//														// el contenido de persona
-//														// al area de texto
-//			}
-//		}
-//	}
-	
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -133,11 +116,9 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			controlador.agregarReparacion(id, fecha, descripcion, nombreCliente, placaAuto, kilometraje, idMecanico, nombreMecanico);
 		}
 		
-		else if (grito.equals(LISTAREPARACIONES)){
-			for(int i=0; i<=10;i++)
-	        {
-	         info.append("hola mundo\n");
-	        }
+		else if (grito.equals(AUTOSYDUEÑO)){
+	         info.setText(controlador.dueniosAutos());
+	         System.out.println(controlador.dueniosAutos());
 		}
 	}
 }

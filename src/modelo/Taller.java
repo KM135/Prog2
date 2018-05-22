@@ -174,18 +174,17 @@ public class Taller {
 
 		if (clientes.isEmpty()) {
 			throw new Exception("No hay clientes registrados en el sistema.");
-		}
-		else{
+		} else {
 			for (int i = 0; i < clientes.size(); i++) {
 				if (clientes.get(i).getCedula() == cedulaCliente) {
 					clientes.get(i).agregarAuto(agregado);
 					System.out.println("El auto " + agregado.getPlaca() + " ha sido agregado para el cliente "
 							+ clientes.get(i).getNombre() + " con cedula " + clientes.get(i).getCedula());
-				}
-				else throw new Exception("Esa cedula no esta registrada o el auto ya esta registrado");
+				} else
+					throw new Exception("Esa cedula no esta registrada");
 			}
 		}
-		
+
 	}
 
 	/**
@@ -215,7 +214,12 @@ public class Taller {
 	 */
 
 	public void agregarMecanico(Mecanico mecanico) throws Exception {
-		if (seBuscaMecanico(mecanico.getId())) {
+
+		if (mecanicos.isEmpty()) {
+			throw new Exception("No hay mecanicos registrados en el sistema.");
+		}
+
+		else if (seBuscaMecanico(mecanico.getId())) {
 			throw new Exception("El mecanico que intenta registrar ya existe en el sistema");
 		} else {
 			System.out.println("El mecanico ha sido agregado exitosamente. Tenemos los siguientes clientes");
@@ -288,4 +292,5 @@ public class Taller {
 					+ trabajos.get(i).getFecha() + " para el vehiculo " + trabajos.get(i).getPlacaAuto());
 		}
 	}
+
 }

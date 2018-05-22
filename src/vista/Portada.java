@@ -17,10 +17,10 @@ public class Portada extends JFrame {
 		setSize(640, 360);
 		setTitle("Portada");
 		setLocationRelativeTo(null);
+		setUndecorated(true);
 	}
 
 	public void paint(Graphics g) {
 		g.drawImage(fondo, 0, 0, getWidth(), getHeight(), this);
 	}
-
 }

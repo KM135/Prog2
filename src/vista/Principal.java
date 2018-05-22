@@ -29,7 +29,7 @@ public class Principal extends JFrame implements ActionListener {
 
 		setSize(600, 300);
 		setTitle("Ventana de inicio");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 2, 20, 20));
 
@@ -47,6 +47,8 @@ public class Principal extends JFrame implements ActionListener {
 		add(chat);
 
 		salir = new JButton("Salir");
+		salir.setActionCommand(SALIR);
+		salir.addActionListener(this);
 		add(salir);
 
 		setVisible(true);
@@ -54,6 +56,7 @@ public class Principal extends JFrame implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
 		String grito = e.getActionCommand();
+		
 		if (grito.equals(PORTADA)) {
 			Hilo miHilo = new Hilo();
 			miHilo.start();
@@ -61,6 +64,10 @@ public class Principal extends JFrame implements ActionListener {
 
 		else if (grito.equals(TALLER)) {
 			ControladorTaller controlador = new ControladorTaller();
+		}
+		
+		else if (grito.equals(SALIR)){
+			System.exit(0);
 		}
 	}
 }
