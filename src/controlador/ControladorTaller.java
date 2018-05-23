@@ -75,7 +75,7 @@ public class ControladorTaller {
 		String reporte = "\n" + "---- REPORTE DE REPARACIONES ----" + "\n" + "\n";
 
 		for (int i = 0; i < modelo.darReparaciones().size(); i++) {
-			reporte += "El vehiculo " + modelo.darReparaciones().get(i).getPlacaAuto() + " fue reparado por "
+			reporte += "\n" +"El vehiculo " + modelo.darReparaciones().get(i).getPlacaAuto() + " fue reparado por "
 					+ modelo.darReparaciones().get(i).getNombreMecanico() + " , quien lo recibio con "
 					+ modelo.darReparaciones().get(i).getKilometraje() + " Kilometros. " + "\n"
 					+ " Se procedio a realizarle el siguiente procedimiento: " + "\n"

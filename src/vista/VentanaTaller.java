@@ -1,6 +1,8 @@
 package vista;
 
+import java.awt.DisplayMode;
 import java.awt.GridLayout;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -8,6 +10,12 @@ import java.util.Iterator;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 import controlador.ControladorTaller;
 import modelo.Mecanico;
@@ -32,7 +40,8 @@ public class VentanaTaller extends JFrame implements ActionListener {
 	 * Paneles que componen la ventana principal
 	 */
 	private PanelSuperior superior;
-	private Reportes info;
+	private PanelInferior inferior;
+	//private Reportes info;
 	private ControladorTaller controlador;
 
 	/**
@@ -43,16 +52,19 @@ public class VentanaTaller extends JFrame implements ActionListener {
 	public VentanaTaller(ControladorTaller pControlador) {
 
 		controlador = pControlador;
-		setSize(600, 300);
+		setSize(600, 500);
 		setTitle("Taller Papiperradas");
-		// setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new GridLayout(2, 1));
 
 		superior = new PanelSuperior(this);
 		add(superior);
-		info = new Reportes();
-		add(info);
+		
+		inferior = new PanelInferior();
+		add(inferior);
+	
+//		info = new Reportes();
+//		add(info);
 
 		setVisible(true);
 	}
@@ -79,6 +91,7 @@ public class VentanaTaller extends JFrame implements ActionListener {
 			String telefonoTXT = JOptionPane.showInputDialog("Ingrese el telefono");
 			int telefono = Integer.parseInt(telefonoTXT);
 			controlador.agregarCliente(cedula, nombre, direccion, telefono);
+			
 		}
 
 		else if (grito.equals(AUTO)) {
@@ -117,19 +130,50 @@ public class VentanaTaller extends JFrame implements ActionListener {
 		}
 
 		else if (grito.equals(AUTOSYDUEÑO)) {
-			info.setText(controlador.dueniosAutos());
+			//info.setText(controlador.dueniosAutos());
+			inferior.recibirReporte(controlador.dueniosAutos());
 			System.out.println(controlador.dueniosAutos());
 		}
 		
 		else if (grito.equalsIgnoreCase(LISTAREPARACIONES)){
-			info.setText(controlador.reparaciones());
+			//info.setText(controlador.reparaciones());
+			inferior.recibirReporte(controlador.reparaciones());
+			
 			System.out.println(controlador.reparaciones());
 		}
 		
 		else if (grito.equalsIgnoreCase(HISTXAUTO)) {
 			String placa = JOptionPane.showInputDialog("Ingrese la placa que desea consultar");
-			info.setText(controlador.historialAuto(placa));
+			//info.setText(controlador.historialAuto(placa));
+			inferior.recibirReporte(controlador.historialAuto(placa));
 			System.out.println(controlador.historialAuto(placa));
 		}
 	}
 }
+
+
+//class prueba {
+//	/**
+//	 * Pasos para crear un Scroll
+//	 * 1) Se requiere un Jpanel
+//	 * 2) Se requiere un JtexArea
+//	 * 3) Se requiere un JCrollPane
+//	 * 4) Se mete el JTextArea dentro del Scroll y el Scroll dentro del panel 
+//	 */
+//	
+//	
+//	
+//	JPanel panel = new JPanel ();
+//	panel.setBorder(new TitledBorder(new EtchedBorder(), "Display Area"));
+//
+//	JTextArea textArea = new JTextArea (10,50);
+//	textArea.setEditable ( false );
+//
+//	JScrollPane scroll = new JScrollPane ( textArea );
+//	scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+//
+//	panel.add ( scroll );
+//
+//	add(panel);
+//}
+
