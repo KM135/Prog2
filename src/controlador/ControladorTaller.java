@@ -86,16 +86,19 @@ public class ControladorTaller {
 	}
 
 	public String historialAuto(String placa) {
-		String reporte = "\n" + "---- HISTORICO DE REPARACIONES ----" + "\n" + "\n";
+		String reporte = "\n" + "---- HISTORICO DE REPARACIONES ----" + "\n"
+				+ "El vehiculo seleccionado tiene el siguiente historial: " + "\n" + "\n";
 
 		for (int i = 0; i < modelo.darReparaciones().size(); i++) {
 			if (modelo.darReparaciones().get(i).getPlacaAuto().equalsIgnoreCase(placa)) {
-				reporte += "El vechiculo seleccionado fue atendido en la fecha: "
-						+ modelo.darReparaciones().get(i).getFecha() + "\n" + "Y se le hizo el siguiente trabajo: "
-						+ "\n" + modelo.darReparaciones().get(i).getDescripcion();
+				reporte += "Identidicador: " + modelo.darReparaciones().get(i).getId() + "\n" + "Propietario: "
+						+ modelo.darReparaciones().get(i).getNombreCliente() + "\n" + "Fecha: "
+						+ modelo.darReparaciones().get(i).getFecha() + "\n" + "Detalle del trabajo: "
+						+ modelo.darReparaciones().get(i).getDescripcion() + "\n" + "Atendido por: "
+						+ modelo.darReparaciones().get(i).getNombreMecanico() + "\n" + "Se recibio con "
+						+ modelo.darReparaciones().get(i).getKilometraje() + " Kilometros" + "\n" + "\n";
 			}
 		}
-
 		return reporte;
 	}
 

@@ -26,56 +26,27 @@ public class Reparacion {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getFecha() {
 		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
 	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
 	public String getNombreCliente() {
 		return nombreCliente;
-	}
-
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
 	}
 
 	public String getPlacaAuto() {
 		return placaAuto;
 	}
 
-	public void setPlacaAuto(String placaAuto) {
-		this.placaAuto = placaAuto;
-	}
-
 	public int getKilometraje() {
 		return kilometraje;
-	}
-
-	public void setKilometraje(int kilometraje) {
-		this.kilometraje = kilometraje;
 	}
 
 	public String getNombreMecanico() {
 		return nombreMecanico;
 	}
-
-	public void setNombreMecanico(String nombreMecanico) {
-		this.nombreMecanico = nombreMecanico;
-	}
-
 }
