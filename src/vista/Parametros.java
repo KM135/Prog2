@@ -22,8 +22,8 @@ public class Parametros extends JPanel{
 		cliente=new JButton("Crear cliente");
 		cliente.setActionCommand(taller.CLIENTE);
 		cliente.addActionListener(taller);
-		cliente.setForeground(new Color(232, 244, 233));
-		cliente.setBackground(new Color(20, 25, 81));
+		cliente.setForeground(new Color(13, 163, 26));
+		cliente.setBackground(new Color(12,31,52));
 		cliente.setFont(fuente);
 		add(cliente);
 		
@@ -31,23 +31,23 @@ public class Parametros extends JPanel{
 		auto.setActionCommand(taller.AUTO);
 		auto.addActionListener(taller);
 		auto.addActionListener(taller);
-		auto.setForeground(new Color(232, 244, 233));
-		auto.setBackground(new Color(37, 47, 165));
+		auto.setForeground(new Color(12,31,52));
+		auto.setBackground(new Color(59, 198, 18));
 		add(auto);
 		
 		mecanico=new JButton("Crear mecanico");
 		mecanico.setActionCommand(taller.MECANICO);
 		mecanico.addActionListener(taller);
-		mecanico.setForeground(new Color(232, 244, 233));
-		mecanico.setBackground(new Color(130, 77, 0));
+		mecanico.setForeground(new Color(12,31,52));
+		mecanico.setBackground(new Color(59, 198, 18));
 		mecanico.setFont(fuente);
 		add(mecanico);
 		
 		reparacion=new JButton("Registrar orden");
 		reparacion.setActionCommand(taller.REPARACION);
 		reparacion.addActionListener(taller);
-		reparacion.setForeground(new Color(232, 244, 233));
-		reparacion.setBackground(new Color(209, 141, 81));
+		reparacion.setForeground(new Color(13, 163, 26));
+		reparacion.setBackground(new Color(12,31,52));
 		reparacion.setFont(fuente);
 		add(reparacion);
 	}

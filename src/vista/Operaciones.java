@@ -23,7 +23,7 @@ public class Operaciones extends JPanel{
 		reparaciones.setActionCommand(ventana.LISTAREPARACIONES);
 		reparaciones.addActionListener(ventana);
 		reparaciones.setForeground(new Color(232, 244, 233));
-		reparaciones.setBackground(new Color(20, 25, 81));
+		reparaciones.setBackground(new Color(10,145,168));
 		reparaciones.setFont(fuente);
 		add(reparaciones);
 		
@@ -31,7 +31,7 @@ public class Operaciones extends JPanel{
 		historialXAuto.setActionCommand(ventana.HISTXAUTO);
 		historialXAuto.addActionListener(ventana);
 		historialXAuto.setForeground(new Color(232, 244, 233));
-		historialXAuto.setBackground(new Color(20, 25, 81));
+		historialXAuto.setBackground(new Color(17, 80, 70));
 		historialXAuto.setFont(fuente);
 		add(historialXAuto);
 		
@@ -39,7 +39,7 @@ public class Operaciones extends JPanel{
 		autosregistrados.setActionCommand(ventana.AUTOSYDUEÑO);
 		autosregistrados.addActionListener(ventana);
 		autosregistrados.setForeground(new Color(232, 244, 233));
-		autosregistrados.setBackground(new Color(20, 25, 81));
+		autosregistrados.setBackground(new Color(10,145,168));
 		autosregistrados.setFont(fuente);
 		add(autosregistrados);
 	}

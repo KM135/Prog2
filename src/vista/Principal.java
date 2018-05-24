@@ -34,7 +34,7 @@ public class Principal extends JFrame implements ActionListener {
 	private JButton portada, taller, chat, salir;
 	private Modelo modelo;
 
-	Font fuenteTaller = new Font("Times New Roman", Font.LAYOUT_RIGHT_TO_LEFT, 63);
+	Font fuenteTaller = new Font("Tahoma", Font.BOLD, 55);
 	Font fuenteChat = new Font("Tahoma", Font.ITALIC, 35);
 	Font fuentePortada = new Font("Tahoma", Font.PLAIN, 30);
 	Font fuenteSalir = new Font("Arial", Font.ITALIC, 20);
