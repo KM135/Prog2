@@ -7,7 +7,7 @@ public class Hilo extends Thread {
 		Portada presentacion = new Portada();
 		presentacion.setVisible(true);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
