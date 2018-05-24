@@ -41,7 +41,6 @@ public class VentanaTaller extends JFrame implements ActionListener {
 	 */
 	private PanelSuperior superior;
 	private PanelInferior inferior;
-	// private Reportes info;
 	private ControladorTaller controlador;
 
 	/**
